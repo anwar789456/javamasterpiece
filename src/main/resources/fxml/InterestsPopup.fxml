@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import java.lang.String?>
+
+<BorderPane styleClass="interests-popup" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.InterestsPopupController">
+   <stylesheets>
+      <String fx:value="/css/menu.css" />
+   </stylesheets>
+   <top>
+      <VBox spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label styleClass="popup-title" text="Select Your Interests" />
+            <TextField fx:id="searchInterestsField" promptText="Search interests..." styleClass="interest-search-field" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="15.0" right="15.0" top="15.0" />
+         </padding>
+      </VBox>
+   </top>
+   <center>
+      <VBox spacing="15.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label styleClass="section-label" text="Available Interests" />
+            <ScrollPane fx:id="interestsScrollPane" fitToWidth="true" prefHeight="200.0" styleClass="interests-scroll-pane">
+               <content>
+                  <VBox fx:id="interestsContainer" spacing="5.0" styleClass="interests-container">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </content>
+            </ScrollPane>
+            <Label styleClass="section-label" text="Selected Interests" />
+            <ScrollPane fx:id="selectedInterestsScrollPane" fitToWidth="true" prefHeight="150.0" styleClass="interests-scroll-pane">
+               <content>
+                  <FlowPane fx:id="selectedInterestsContainer" hgap="5.0" prefWrapLength="300.0" vgap="5.0">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </FlowPane>
+               </content>
+            </ScrollPane>
+            <Label fx:id="errorMessageLabel" styleClass="error-message" text="Error message" visible="false" />
+         </children>
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="5.0" />
+         </padding>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER_RIGHT" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="cancelFilterButton" cancelButton="true" mnemonicParsing="false" styleClass="cancel-button" text="Cancel" />
+            <Button fx:id="applyFilterButton" defaultButton="true" mnemonicParsing="false" styleClass="apply-button" text="Apply" />
+         </children>
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane> 

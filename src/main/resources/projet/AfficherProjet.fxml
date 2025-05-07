@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<VBox spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.projet.AfficherProjet">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+    
+    <Text style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Gestion des Projets"/>
+    
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Button fx:id="btnAdd" text="Ajouter un projet" onAction="#openAddProjectForm"/>
+        <Button fx:id="btnUpdate" text="Modifier" onAction="#updateSelectedProject"/>
+        <Button fx:id="btnDelete" text="Supprimer" onAction="#deleteSelectedProject"/>
+    </HBox>
+    
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label text="Rechercher:"/>
+        <TextField fx:id="tfSearch" promptText="Nom, description ou statut"/>
+        <Button fx:id="btnSearch" text="Rechercher" onAction="#searchProjects"/>
+    </HBox>
+    
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label text="Filtrer par statut:"/>
+        <ComboBox fx:id="cbStatusFilter"/>
+    </HBox>
+    
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label text="Filtrer par date:"/>
+        <DatePicker fx:id="dpStartDate" promptText="Date de début"/>
+        <DatePicker fx:id="dpEndDate" promptText="Date de fin"/>
+        <Button fx:id="btnFilterByDate" text="Filtrer" onAction="#filterByDateRange"/>
+    </HBox>
+    
+    <TableView fx:id="tableProjet" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="colOwnerId" text="ID Propriétaire" prefWidth="100"/>
+            <TableColumn fx:id="colProjectName" text="Nom du projet" prefWidth="150"/>
+            <TableColumn fx:id="colDescription" text="Description" prefWidth="200"/>
+            <TableColumn fx:id="colStartDate" text="Date de début" prefWidth="100"/>
+            <TableColumn fx:id="colEndDate" text="Date de fin" prefWidth="100"/>
+            <TableColumn fx:id="colStatus" text="Statut" prefWidth="100"/>
+        </columns>
+    </TableView>
+</VBox> 

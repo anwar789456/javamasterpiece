@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<VBox spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.projet.AfficherPostulerController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+    
+    <Text style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Gestion des Candidatures"/>
+    
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Button fx:id="btnAdd" text="Ajouter une candidature" onAction="#openAddApplicationForm"/>
+        <Button fx:id="btnUpdate" text="Modifier" onAction="#updateSelectedApplication"/>
+        <Button fx:id="btnDelete" text="Supprimer" onAction="#deleteSelectedApplication"/>
+    </HBox>
+    
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label text="Rechercher:"/>
+        <TextField fx:id="tfSearch" promptText="Nom, email ou raison"/>
+        <Button fx:id="btnSearch" text="Rechercher" onAction="#searchApplications"/>
+    </HBox>
+    
+    <TableView fx:id="tablePostuler" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colProjectId" text="ID Projet" prefWidth="80"/>
+            <TableColumn fx:id="colFirstName" text="Prénom" prefWidth="120"/>
+            <TableColumn fx:id="colEmail" text="Email" prefWidth="180"/>
+            <TableColumn fx:id="colJoiningReason" text="Raison de candidature" prefWidth="200"/>
+            <TableColumn fx:id="colNumTel" text="Téléphone" prefWidth="120"/>
+        </columns>
+    </TableView>
+</VBox> 

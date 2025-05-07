@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox spacing="20" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.controller.quiz.QuizHistoriqueController" alignment="TOP_CENTER" styleClass="quiz-passage-root">
+    <Label text="Historique de mes quiz" styleClass="quiz-title"/>
+    <TableView fx:id="historyTable" prefWidth="700">
+        <columns>
+            <TableColumn fx:id="quizTitleColumn" text="Quiz" prefWidth="200"/>
+            <TableColumn fx:id="dateColumn" text="Date" prefWidth="150"/>
+            <TableColumn fx:id="scoreColumn" text="Score" prefWidth="100"/>
+        </columns>
+    </TableView>
+</VBox> 

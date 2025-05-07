@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.controller.quiz.AfficherQuiz"
+      stylesheets="@../styles/quiz.css"
+      spacing="20">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Header Section -->
+    <HBox styleClass="header" spacing="20" alignment="CENTER_LEFT">
+        <Button fx:id="returnButton" text="Retour" onAction="#handleReturn" styleClass="return-button">
+            <graphic>
+                <Label text="←"/>
+            </graphic>
+        </Button>
+        <Label text="Gestion des Quiz" styleClass="title"/>
+    </HBox>
+    
+    <!-- Table Section -->
+    <TableView fx:id="quizTableView" styleClass="table-view">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID" prefWidth="60"/>
+            <TableColumn fx:id="titreColumn" text="Titre" prefWidth="200"/>
+            <TableColumn fx:id="descriptionColumn" text="Description" prefWidth="300"/>
+            <TableColumn fx:id="dateCreationColumn" text="Date de Création" prefWidth="150"/>
+            <TableColumn fx:id="dateDebutColumn" text="Date de Début" prefWidth="150"/>
+            <TableColumn fx:id="dateFinColumn" text="Date de Fin" prefWidth="150"/>
+            <TableColumn fx:id="statutColumn" text="Statut" prefWidth="100"/>
+        </columns>
+    </TableView>
+
+    <!-- Action Buttons Section -->
+    <HBox spacing="15" alignment="CENTER_RIGHT">
+        <Button fx:id="refreshButton" text="Actualiser" onAction="#loadQuizData" styleClass="refresh-button">
+            <graphic>
+                <Label text="⟳"/>
+            </graphic>
+        </Button>
+        <Button fx:id="addButton" text="Ajouter" onAction="#handleAdd" styleClass="add-button">
+            <graphic>
+                <Label text="+"/>
+            </graphic>
+        </Button>
+        <Button fx:id="modifyButton" text="Modifier" onAction="#handleModify" styleClass="modify-button">
+            <graphic>
+                <Label text="✎"/>
+            </graphic>
+        </Button>
+        <Button fx:id="deleteButton" text="Supprimer" onAction="#handleDelete" styleClass="delete-button">
+            <graphic>
+                <Label text="🗑"/>
+            </graphic>
+        </Button>
+    </HBox>
+
+</VBox>

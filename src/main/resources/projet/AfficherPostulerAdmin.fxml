@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.controller.projet.AfficherPostulerAdminController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Applications Management"/>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Add Application" onAction="#handleAdd"/>
+        <TextField fx:id="searchField" promptText="Search applications..."/>
+        <ComboBox fx:id="filterComboBox" promptText="Filter by status"/>
+        <Button text="Refresh" onAction="#refreshTable"/>
+    </HBox>
+
+    <TableView fx:id="tableView" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="projectIdColumn" text="Project ID"/>
+            <TableColumn fx:id="firstNameColumn" text="First Name"/>
+            <TableColumn fx:id="emailColumn" text="Email"/>
+            <TableColumn fx:id="joiningReasonColumn" text="Joining Reason"/>
+            <TableColumn fx:id="numTelColumn" text="Phone Number"/>
+            <TableColumn fx:id="statusColumn" text="Status"/>
+            <TableColumn fx:id="actionsColumn" text="Actions"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Accept Selected" onAction="#handleAcceptSelected"/>
+        <Button text="Reject Selected" onAction="#handleRejectSelected"/>
+        <Button text="Delete Selected" onAction="#handleDeleteSelected"/>
+    </HBox>
+</VBox> 

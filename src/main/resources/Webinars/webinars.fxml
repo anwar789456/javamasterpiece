@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.controller.webinars.WebinarsController"
+      spacing="20" stylesheets="/styles/global.css">
+    
+    <padding>
+        <Insets top="30" right="30" bottom="30" left="30"/>
+    </padding>
+    
+    <HBox alignment="CENTER_LEFT" spacing="20">
+        <Label text="Webinars" style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="refreshButton" text="Refresh" styleClass="action-button">
+            <graphic>
+                <Label text="⟳" style="-fx-font-size: 14px;"/>
+            </graphic>
+        </Button>
+    </HBox>
+    
+    <Label text="Available Webinars" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+    
+    <Label fx:id="noWebinarsLabel" 
+           text="No webinars are currently available. Check back later!" 
+           style="-fx-text-fill: #555;"/>
+    
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+        <VBox fx:id="webinarsContainer" spacing="15">
+            <!-- Webinars will be added here dynamically -->
+        </VBox>
+    </ScrollPane>
+</VBox> 

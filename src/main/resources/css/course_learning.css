@@ -1,0 +1,159 @@
+/* Course Learning Interface Styles */
+
+/* Global */
+.root {
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+    -fx-background-color: #f5f5f5;
+}
+
+/* Header */
+.header {
+    -fx-background-color: #3f51b5;
+    -fx-padding: 10px;
+}
+
+.header-title {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+}
+
+.header-button {
+    -fx-background-color: #283593;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+
+.header-button:hover {
+    -fx-background-color: #1a237e;
+}
+
+/* Sidebar */
+.sidebar-container {
+    -fx-background-color: #f5f5f5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);
+}
+
+.toggle-sidebar-button {
+    -fx-background-color: #3f51b5;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+
+.toggle-sidebar-button:hover {
+    -fx-background-color: #283593;
+}
+
+.lessons-list-view {
+    -fx-background-color: #f5f5f5;
+    -fx-background-insets: 0;
+    -fx-padding: 5px;
+}
+
+.lessons-list-view .list-cell {
+    -fx-background-color: transparent;
+    -fx-padding: 10px;
+}
+
+.lessons-list-view .list-cell:filled:selected {
+    -fx-background-color: #e3f2fd;
+    -fx-text-fill: #2196f3;
+    -fx-font-weight: bold;
+}
+
+.lessons-list-view .list-cell:filled:hover {
+    -fx-background-color: #bbdefb;
+}
+
+.sidebar-header {
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-padding: 10px;
+    -fx-background-color: #e8eaf6;
+}
+
+/* Media content */
+.media-container {
+    -fx-background-color: #000000;
+}
+
+.media-controls {
+    -fx-background-color: #212121;
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+}
+
+.media-control-button {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+
+.time-slider .track {
+    -fx-background-color: #424242;
+    -fx-background-radius: 0;
+}
+
+.time-slider .thumb {
+    -fx-background-color: #f44336;
+    -fx-background-radius: 50%;
+}
+
+.time-label {
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+}
+
+/* Lesson info */
+.lesson-info {
+    -fx-background-color: #f5f5f5;
+    -fx-padding: 15px;
+}
+
+.lesson-title {
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
+
+.lesson-description {
+    -fx-font-size: 14px;
+    -fx-wrap-text: true;
+}
+
+/* Navigation buttons */
+.navigation-button {
+    -fx-padding: 8px 15px;
+    -fx-cursor: hand;
+}
+
+.previous-button {
+    -fx-background-color: #e0e0e0;
+}
+
+.next-button {
+    -fx-background-color: #3f51b5;
+    -fx-text-fill: white;
+}
+
+.next-button:hover {
+    -fx-background-color: #283593;
+}
+
+.previous-button:hover {
+    -fx-background-color: #bdbdbd;
+}
+
+/* No content placeholder */
+.no-content-placeholder {
+    -fx-alignment: center;
+    -fx-spacing: 20px;
+}
+
+.placeholder-text {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+}
+
+/* Loading indicator */
+.loading-indicator {
+    -fx-progress-color: #3f51b5;
+} 

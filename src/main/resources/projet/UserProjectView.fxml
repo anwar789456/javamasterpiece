@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<VBox spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="org.example.controller.projet.UserProjectViewController"
+      style="-fx-background-color: #f8f9fa;">
+    
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+    
+    <!-- Header Section -->
+    <VBox alignment="CENTER" spacing="10">
+        <Text style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-fill: #222;" text="Discover Exciting Projects"/>
+        <Text style="-fx-font-size: 16px; -fx-fill: #555;" text="Join innovative projects and collaborate with talented individuals"/>
+        <Button fx:id="calendarButton" text="Calendrier" onAction="#showCalendar" style="-fx-background-color: linear-gradient(to right, #43e97b, #38f9d7); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 10 30; -fx-font-size: 16px; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, #b0b0b0, 8, 0, 0, 2);"/>
+        <Button fx:id="myApplicationsButton" text="My Applications" onAction="#showMyApplications" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 10 30; -fx-font-size: 16px; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, #b0b0b0, 8, 0, 0, 2);"/>
+        <Button text="🤖 AI Assistant" onAction="#openAIAssistant" 
+                style="-fx-background-color: #6200EA; -fx-text-fill: white;"/>
+    </VBox>
+    
+    <!-- Search and Filter Section -->
+    <VBox spacing="15" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, #b0b0b0, 5, 0, 0, 1); -fx-padding: 20;">
+        <Text style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Find Your Perfect Project"/>
+        
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <TextField fx:id="searchField" promptText="Search by project name or description..." prefWidth="400" 
+                      style="-fx-background-radius: 5; -fx-border-radius: 5;"/>
+            
+            <Button text="Search" onAction="#handleSearch" 
+                    style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold;"/>
+        </HBox>
+        
+        <!-- Quick Filter Tags -->
+        <FlowPane hgap="10" vgap="10">
+            <Button text="All Projects" onAction="#filterByStatus" userData="All" 
+                    style="-fx-background-color: #e0e0e0; -fx-text-fill: #333333; -fx-background-radius: 20;"/>
+            <Button text="Active" onAction="#filterByStatus" userData="Active" 
+                    style="-fx-background-color: #e0e0e0; -fx-text-fill: #333333; -fx-background-radius: 20;"/>
+            <Button text="Newest" onAction="#sortByDate" userData="newest" 
+                    style="-fx-background-color: #e0e0e0; -fx-text-fill: #333333; -fx-background-radius: 20;"/>
+            <Button text="Most Popular" onAction="#sortByPopularity" userData="popular" 
+                    style="-fx-background-color: #e0e0e0; -fx-text-fill: #333333; -fx-background-radius: 20;"/>
+        </FlowPane>
+    </VBox>
+    
+    <!-- Projects Card Grid -->
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent;">
+        <TilePane fx:id="projectsGrid" hgap="24" vgap="24" prefColumns="3" style="-fx-padding: 20;">
+            <!-- Project cards will be added here dynamically -->
+        </TilePane>
+    </ScrollPane>
+</VBox> 

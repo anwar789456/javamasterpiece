@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.controller.quiz.AjouterQuestionQuiz"
+      spacing="10">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Ajouter une Question" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+    
+    <GridPane vgap="10" hgap="10">
+        <Label text="Quiz:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <ComboBox fx:id="quizComboBox" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="300"/>
+        
+        <Label text="Question:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="questionField" GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="300"/>
+        
+        <Label text="Option 1:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <TextField fx:id="option1Field" GridPane.columnIndex="1" GridPane.rowIndex="2" prefWidth="300"/>
+        
+        <Label text="Option 2:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <TextField fx:id="option2Field" GridPane.columnIndex="1" GridPane.rowIndex="3" prefWidth="300"/>
+        
+        <Label text="Option 3:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+        <TextField fx:id="option3Field" GridPane.columnIndex="1" GridPane.rowIndex="4" prefWidth="300"/>
+        
+        <Label text="Option 4:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+        <TextField fx:id="option4Field" GridPane.columnIndex="1" GridPane.rowIndex="5" prefWidth="300"/>
+        
+        <Label text="Bonne Réponse:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+        <ComboBox fx:id="bonneReponseComboBox" GridPane.columnIndex="1" GridPane.rowIndex="6" prefWidth="300"/>
+        
+        <Label text="Type de Question:" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+        <ComboBox fx:id="typeQuestionComboBox" GridPane.columnIndex="1" GridPane.rowIndex="7" prefWidth="300"/>
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button fx:id="cancelButton" text="Annuler" onAction="#handleCancel"/>
+        <Button fx:id="saveButton" text="Enregistrer" onAction="#handleSave" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+    </HBox>
+
+</VBox> 

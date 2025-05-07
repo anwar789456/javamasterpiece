@@ -1,0 +1,143 @@
+/* Modern light theme for Apply for Project form */
+
+.root, .vbox, .VBox {
+    -fx-background-color: white;
+    -fx-background-radius: 16;
+    -fx-effect: dropshadow(gaussian, #b0b0b0, 12, 0.1, 0, 2);
+}
+
+.label {
+    -fx-font-size: 15px;
+    -fx-text-fill: #222;
+    -fx-font-weight: 500;
+}
+
+.text-field, .text-area {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #e0e0e0;
+    -fx-background-color: #fafafa;
+    -fx-font-size: 15px;
+    -fx-padding: 8 10 8 10;
+}
+
+.text-field:focused, .text-area:focused {
+    -fx-border-color: #43e97b;
+    -fx-background-color: #fff;
+}
+
+.primary-btn {
+    -fx-background-color: linear-gradient(to right, #43e97b, #38f9d7);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 10 28;
+    -fx-font-size: 16px;
+    -fx-effect: dropshadow(gaussian, #43e97b44, 4, 0.2, 0, 1);
+}
+.primary-btn:hover {
+    -fx-background-color: linear-gradient(to right, #38f9d7, #43e97b);
+}
+
+.secondary-btn {
+    -fx-background-color: #f5f5f5;
+    -fx-text-fill: #43e97b;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 10 28;
+    -fx-font-size: 16px;
+    -fx-border-color: #43e97b;
+    -fx-border-width: 2;
+}
+.secondary-btn:hover {
+    -fx-background-color: #e0f7ef;
+}
+
+.text-area {
+    -fx-pref-row-count: 3;
+}
+
+/* Modern Applications Table */
+.modern-table {
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-effect: dropshadow(gaussian, #b0b0b0, 8, 0.1, 0, 1);
+    -fx-font-size: 15px;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1;
+    -fx-table-cell-border-color: transparent;
+}
+
+.modern-table .column-header-background {
+    -fx-background-color: #f5faff;
+    -fx-border-radius: 12 12 0 0;
+    -fx-background-radius: 12 12 0 0;
+}
+
+.modern-table .column-header, .modern-table .filler {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2196F3;
+    -fx-background-color: transparent;
+}
+
+.modern-table .table-row-cell:filled:selected, .modern-table .table-row-cell:filled:hover {
+    -fx-background-color: #e3f2fd;
+}
+
+.modern-table .table-row-cell:odd {
+    -fx-background-color: #f8fafd;
+}
+
+.modern-table .table-row-cell:even {
+    -fx-background-color: #ffffff;
+}
+
+.status-badge {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 16;
+    -fx-padding: 2 16 2 16;
+    -fx-background-color: #e0e0e0;
+    -fx-effect: dropshadow(gaussian, #b0b0b0, 2, 0.1, 0, 1);
+}
+
+.status-badge[style*="#43e97b"] { -fx-background-color: #e8f5e9; }
+.status-badge[style*="#2196F3"] { -fx-background-color: #e3f2fd; }
+.status-badge[style*="#FFC107"] { -fx-background-color: #fffde7; }
+.status-badge[style*="#F44336"] { -fx-background-color: #ffebee; }
+
+.cancel-btn {
+    -fx-background-color: #F44336;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 16;
+    -fx-padding: 6 22;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, #f4433644, 2, 0.1, 0, 1);
+    -fx-graphic: url('/icons/trash.png'); /* Optional: add a trash icon if available */
+}
+.cancel-btn:hover {
+    -fx-background-color: #d32f2f;
+}
+
+.modern-close-btn {
+    -fx-background-color: #e0e0e0;
+    -fx-text-fill: #2196F3;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 8 32;
+    -fx-font-size: 15px;
+    -fx-cursor: hand;
+}
+.modern-close-btn:hover {
+    -fx-background-color: #bbdefb;
+}
+
+/* Empty state styling */
+.modern-table .placeholder {
+    -fx-font-size: 16px;
+    -fx-text-fill: #888;
+    -fx-padding: 40 0 0 0;
+} 

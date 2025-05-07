@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.menu.menu">
+
+    <children>
+        <!-- Sidebar -->
+        <VBox prefWidth="200.0" spacing="10.0" style="-fx-background-color: #2c3e50;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label style="-fx-font-size: 18; -fx-text-fill: #ecf0f1; -fx-padding: 10;" text="Menu" />
+
+                <Button prefWidth="287.0" style="-fx-background-color: #34495e; -fx-text-fill: #ecf0f1; -fx-font-size: 14; -fx-pref-height: 40;" text="Users" />
+                <Button fx:id="forumButton" prefWidth="298.0" style="-fx-background-color: #34495e; -fx-text-fill: #ecf0f1; -fx-font-size: 14; -fx-pref-height: 40;" text="Forum" />
+                <Button fx:id="userForumButton" prefWidth="298.0" style="-fx-background-color: #34495e; -fx-text-fill: #ecf0f1; -fx-font-size: 14; -fx-pref-height: 40;" text="User Forum" />
+                <Button prefWidth="308.0" style="-fx-background-color: #34495e; -fx-text-fill: #ecf0f1; -fx-font-size: 14; -fx-pref-height: 40;" text="Competition" />
+                <Button prefWidth="305.0" style="-fx-background-color: #34495e; -fx-text-fill: #ecf0f1; -fx-font-size: 14; -fx-pref-height: 40;" text="Projet" />
+                <Button prefWidth="376.0" style="-fx-background-color: #34495e; -fx-text-fill: #ecf0f1; -fx-font-size: 14; -fx-pref-height: 40;" text="Webinar" />
+                <Button prefWidth="367.0" style="-fx-background-color: #34495e; -fx-text-fill: #ecf0f1; -fx-font-size: 14; -fx-pref-height: 40;" text="Cours" />
+            </children>
+        </VBox>
+
+        <!-- Main Content Pane -->
+        <Pane fx:id="contentPane" prefWidth="400.0" style="-fx-background-color: #ecf0f1;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <!-- Add main content here -->
+        </Pane>
+    </children>
+
+</AnchorPane>

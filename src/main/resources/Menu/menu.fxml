@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.menu.menu" stylesheets="@menu.css">
+    <children>
+        <!-- Sidebar with gradient background -->
+        <VBox styleClass="sidebar" prefWidth="250.0" spacing="8.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <padding>
+                <Insets top="20.0" right="15.0" bottom="20.0" left="15.0" />
+            </padding>
+            <effect>
+                <DropShadow color="#00000080" radius="10.0" spread="0.05" />
+            </effect>
+            <children>
+                <!-- App Title/Logo -->
+                <Label styleClass="app-title" alignment="CENTER" prefHeight="70.0" prefWidth="220.0">
+                    <font>
+                        <Font name="Segoe UI Semibold" size="28.0" />
+                    </font>
+                    <graphic>
+                        <Label text="ESPRIT" styleClass="app-title">
+                            <font>
+                                <Font name="Segoe UI Bold" size="30.0" />
+                            </font>
+                        </Label>
+                    </graphic>
+                </Label>
+
+                <!-- Navigation Section Label -->
+                <Label text="NAVIGATION" styleClass="section-header">
+                    <font>
+                        <Font name="Segoe UI Semibold" size="12.0" />
+                    </font>
+                </Label>
+
+                <!-- Menu Buttons -->
+                <Button fx:id="userButton" styleClass="menu-button" prefHeight="50.0" prefWidth="220.0" text="Account">
+                    <font>
+                        <Font name="Segoe UI" size="14.0" />
+                    </font>
+                    <graphic>
+                        <Label text="👥" styleClass="menu-icon" />
+                    </graphic>
+                </Button>
+
+                <Button fx:id="forumButton" styleClass="menu-button" prefHeight="50.0" prefWidth="220.0" text="Admin Forum">
+                    <font>
+                        <Font name="Segoe UI" size="14.0" />
+                    </font>
+                    <graphic>
+                        <Label text="📊" styleClass="menu-icon" />
+                    </graphic>
+                </Button>
+
+                <Button fx:id="userForumButton" styleClass="menu-button" prefHeight="50.0" prefWidth="220.0" text="User Forum">
+                    <font>
+                        <Font name="Segoe UI" size="14.0" />
+                    </font>
+                    <graphic>
+                        <Label text="💬" styleClass="menu-icon" />
+                    </graphic>
+                </Button>
+
+                <Button styleClass="menu-button" prefHeight="50.0" prefWidth="220.0" text="Competition">
+                    <font>
+                        <Font name="Segoe UI" size="14.0" />
+                    </font>
+                    <graphic>
+                        <Label text="🏆" styleClass="menu-icon" />
+                    </graphic>
+                </Button>
+
+                <!-- Training Section Label -->
+                <Label text="LEARNING" styleClass="section-header">
+                    <font>
+                        <Font name="Segoe UI Semibold" size="12.0" />
+                    </font>
+                </Label>
+
+                <Button fx:id="projectButton" styleClass="menu-button" prefHeight="50.0" prefWidth="220.0" text="Projet">
+                    <font>
+                        <Font name="Segoe UI" size="14.0" />
+                    </font>
+                    <graphic>
+                        <Label text="📝" styleClass="menu-icon" />
+                    </graphic>
+                </Button>
+
+                <Button fx:id="applicationsButton" styleClass="menu-button" prefHeight="50.0" prefWidth="220.0" text="App Projet">
+                    <font>
+                        <Font name="Segoe UI" size="14.0" />
+                    </font>
+                    <graphic>
+                        <Label text="📝" styleClass="menu-icon" />
+                    </graphic>
+                </Button>
+
+                <Button fx:id="quizButton" styleClass="menu-button" prefHeight="50.0" prefWidth="220.0" text="Quiz">
+                    <font>
+                        <Font name="Segoe UI" size="14.0" />
+                    </font>
+                    <graphic>
+                        <Label text="📋" styleClass="menu-icon" />
+                    </graphic>
+                </Button>
+
+                <Button fx:id="questionQuizButton" styleClass="menu-button" prefHeight="50.0" prefWidth="220.0" text="Question Quiz">
+                    <font>
+                        <Font name="Segoe UI" size="14.0" />
+                    </font>
+                    <graphic>
+                        <Label text="❓" styleClass="menu-icon" />
+                    </graphic>
+                </Button>
+
+                <Button fx:id="competitionButton" styleClass="menu-button" prefHeight="50.0" prefWidth="220.0" text="Competition">
+                    <font>
+                        <Font name="Segoe UI" size="14.0" />
+                    </font>
+                    <graphic>
+                        <Label text="🏆" styleClass="menu-icon" />
+                    </graphic>
+                </Button>
+
+                <Button styleClass="menu-button" prefHeight="50.0" prefWidth="220.0" text="Webinar">
+                    <font>
+                        <Font name="Segoe UI" size="14.0" />
+                    </font>
+                    <graphic>
+                        <Label text="📹" styleClass="menu-icon" />
+                    </graphic>
+                </Button>
+
+                <Button fx:id="coursesButton" styleClass="menu-button" prefHeight="50.0" prefWidth="220.0" text="Cours">
+                    <font>
+                        <Font name="Segoe UI" size="14.0" />
+                    </font>
+                    <graphic>
+                        <Label text="📚" styleClass="menu-icon" />
+                    </graphic>
+                </Button>
+
+                <!-- Flexible space to push sign out to bottom -->
+                <Region VBox.vgrow="ALWAYS" />
+
+                <!-- Sign Out Button - Enhanced with modern design -->
+                <HBox alignment="CENTER" spacing="5" styleClass="sign-out-container">
+                    <padding>
+                        <Insets top="5.0" right="5.0" bottom="5.0" left="5.0" />
+                    </padding>
+                    <Button fx:id="signOutButton" styleClass="sign-out-button" prefHeight="45.0" prefWidth="220.0" text="Sign Out">
+                        <font>
+                            <Font name="Segoe UI Bold" size="14.0" />
+                        </font>
+                        <graphic>
+                            <Label text="🚪" styleClass="sign-out-icon" />
+                        </graphic>
+                        <effect>
+                            <DropShadow color="#00000040" radius="4.0" spread="0.02" />
+                        </effect>
+                    </Button>
+                </HBox>
+            </children>
+        </VBox>
+
+        <!-- Main Content Pane -->
+        <Pane fx:id="contentPane" styleClass="content-pane" prefWidth="750.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <!-- Welcome content -->
+            <children>
+                <VBox alignment="CENTER" layoutX="125.0" layoutY="150.0" prefHeight="400.0" prefWidth="500.0">
+                    <Label text="Welcome to Esprit Platform" styleClass="welcome-title">
+                        <effect>
+                            <DropShadow height="2.0" radius="0.5" width="2.0" color="#00000022" />
+                        </effect>
+                    </Label>
+                    <Label text="Select an option from the menu to get started" styleClass="welcome-subtitle"/>
+                </VBox>
+            </children>
+        </Pane>
+    </children>
+
+    <style>
+        /* Hover effects for buttons */
+        .menu-button:hover {
+        -fx-background-color: rgba(255, 255, 255, 0.2) !important;
+        }
+        .menu-button:pressed {
+        -fx-background-color: rgba(255, 255, 255, 0.3) !important;
+        }
+
+        /* Sign Out container */
+        .sign-out-container {
+        -fx-background-color: rgba(255, 255, 255, 0.1);
+        -fx-background-radius: 12px;
+        }
+
+        /* Sign Out button */
+        .sign-out-button {
+        -fx-background-color: #e74c3c;
+        -fx-background-radius: 10px;
+        -fx-text-fill: white;
+        -fx-font-weight: bold;
+        -fx-alignment: CENTER;
+        -fx-padding: 10px;
+        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 6, 0, 0, 2);
+        -fx-cursor: hand;
+        }
+
+
+        .sign-out-button:hover {
+        -fx-background-color: linear-gradient(to right, #e74c3c, #d63031) !important;
+        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 8, 0, 0, 3);
+        -fx-translate-y: -1px;
+        }
+
+        .sign-out-button:pressed {
+        -fx-background-color: #c0392b !important;
+        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 3, 0, 0, 1);
+        -fx-translate-y: 1px;
+        }
+
+        .sign-out-icon {
+        -fx-text-fill: white;
+        -fx-font-size: 16px;
+        }
+    </style>
+</AnchorPane>

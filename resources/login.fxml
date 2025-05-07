@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.controller.user.Login"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <!-- Title of the Login Form -->
+        <Label text="Login"
+               layoutX="250.0"
+               layoutY="50.0"
+               style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+
+        <!-- Email Label -->
+        <Label text="Email:"
+               layoutX="150.0"
+               layoutY="120.0"
+               style="-fx-font-size: 14px;" />
+
+        <!-- Email TextField -->
+        <TextField fx:id="emailField"
+                   layoutX="220.0"
+                   layoutY="115.0"
+                   prefWidth="200.0" />
+
+        <!-- Password Label -->
+        <Label text="Password:"
+               layoutX="150.0"
+               layoutY="180.0"
+               style="-fx-font-size: 14px;" />
+
+        <!-- Password TextField -->
+        <PasswordField fx:id="passwordField"
+                       layoutX="220.0"
+                       layoutY="175.0"
+                       prefWidth="200.0" />
+
+        <!-- Login Button -->
+        <Button text="Login"
+                fx:id="loginButton"
+                layoutX="200.0"
+                layoutY="240.0"
+                prefWidth="100.0"
+                style="-fx-background-color: #0078D7; -fx-text-fill: white;" />
+
+        <!-- Sign Up Button -->
+        <Button text="Sign Up"
+                fx:id="signUpButton"
+                layoutX="320.0"
+                layoutY="240.0"
+                prefWidth="100.0"
+                style="-fx-background-color: #0078D7; -fx-text-fill: white;" />
+    </children>
+</AnchorPane> 

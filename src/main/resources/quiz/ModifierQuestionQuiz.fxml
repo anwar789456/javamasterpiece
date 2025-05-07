@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.controller.quiz.ModifierQuestionQuiz"
+      spacing="10">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Modifier la Question" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+    <GridPane vgap="10" hgap="10">
+        <Label text="ID Quiz:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="quizIdField" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="200" editable="false"/>
+
+        <Label text="Question:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextArea fx:id="questionTextArea" GridPane.rowIndex="1" GridPane.columnIndex="1" prefRowCount="3" prefWidth="300"/>
+
+        <Label text="Option 1:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="option1Field" GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="300"/>
+
+        <Label text="Option 2:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="option2Field" GridPane.rowIndex="3" GridPane.columnIndex="1" prefWidth="300"/>
+
+        <Label text="Option 3:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <TextField fx:id="option3Field" GridPane.rowIndex="4" GridPane.columnIndex="1" prefWidth="300"/>
+
+        <Label text="Option 4:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+        <TextField fx:id="option4Field" GridPane.rowIndex="5" GridPane.columnIndex="1" prefWidth="300"/>
+
+        <Label text="Bonne Réponse:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="bonneReponseComboBox" GridPane.rowIndex="6" GridPane.columnIndex="1" prefWidth="200"/>
+
+        <Label text="Explication:" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+        <TextArea fx:id="explicationTextArea" GridPane.rowIndex="7" GridPane.columnIndex="1" prefRowCount="3" prefWidth="300"/>
+
+        <Label text="Type de Question:" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="typeQuestionComboBox" GridPane.rowIndex="8" GridPane.columnIndex="1" prefWidth="200"/>
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button fx:id="saveButton" text="Enregistrer" onAction="#handleSave" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+        <Button fx:id="cancelButton" text="Annuler" onAction="#handleCancel" style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+    </HBox>
+
+</VBox> 

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.controller.user.Signup"
+            prefHeight="500.0" prefWidth="600.0">
+    <children>
+        <!-- Title of the Signup Form -->
+        <Label text="Sign Up"
+               layoutX="250.0"
+               layoutY="50.0"
+               style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+
+        <!-- Name Label -->
+        <Label text="Full Name:"
+               layoutX="150.0"
+               layoutY="100.0"
+               style="-fx-font-size: 14px;" />
+
+        <!-- Name TextField -->
+        <TextField fx:id="nameField"
+                   layoutX="220.0"
+                   layoutY="95.0"
+                   prefWidth="200.0" />
+
+        <!-- Email Label -->
+        <Label text="Email:"
+               layoutX="150.0"
+               layoutY="150.0"
+               style="-fx-font-size: 14px;" />
+
+        <!-- Email TextField -->
+        <TextField fx:id="emailField"
+                   layoutX="220.0"
+                   layoutY="145.0"
+                   prefWidth="200.0" />
+
+        <!-- Password Label -->
+        <Label text="Password:"
+               layoutX="150.0"
+               layoutY="200.0"
+               style="-fx-font-size: 14px;" />
+
+        <!-- Password TextField -->
+        <PasswordField fx:id="passwordField"
+                       layoutX="220.0"
+                       layoutY="195.0"
+                       prefWidth="200.0" />
+
+        <!-- Confirm Password Label -->
+        <Label text="Confirm Password:"
+               layoutX="150.0"
+               layoutY="250.0"
+               style="-fx-font-size: 14px;" />
+
+        <!-- Confirm Password TextField -->
+        <PasswordField fx:id="confirmPasswordField"
+                       layoutX="220.0"
+                       layoutY="245.0"
+                       prefWidth="200.0" />
+
+        <!-- Sign Up Button -->
+        <Button text="Create Account"
+                fx:id="createAccountButton"
+                layoutX="220.0"
+                layoutY="300.0"
+                prefWidth="160.0"
+                style="-fx-background-color: #0078D7; -fx-text-fill: white;" />
+
+        <!-- Back to Login Button -->
+        <Button text="Back to Login"
+                fx:id="backToLoginButton"
+                layoutX="220.0"
+                layoutY="350.0"
+                prefWidth="160.0"
+                style="-fx-background-color: #6c757d; -fx-text-fill: white;" />
+    </children>
+</AnchorPane> 

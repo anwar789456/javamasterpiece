@@ -1,0 +1,340 @@
+/* Course Details Page Styling */
+
+/* Main container */
+.root {
+    -fx-background-color: white;
+    -fx-font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Course title styling */
+.course-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+/* Course subtitle styling */
+.course-subtitle {
+    -fx-font-size: 16px;
+    -fx-text-fill: #666666;
+    -fx-wrap-text: true;
+}
+
+/* Course description styling */
+.course-description {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+    -fx-wrap-text: true;
+    -fx-line-spacing: 1.4;
+}
+
+/* Course publisher info */
+.publisher-info {
+    -fx-background-color: #f9f9f9;
+    -fx-background-radius: 5;
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+    -fx-border-color: #eeeeee;
+    -fx-border-radius: 5;
+}
+
+.publisher-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #666666;
+}
+
+.publisher-name {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.publisher-description {
+    -fx-font-size: 14px;
+    -fx-text-fill: #555555;
+}
+
+/* Course image styling */
+.course-image {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1);
+    -fx-background-radius: 5;
+    -fx-background-color: white;
+    -fx-border-color: #eeeeee;
+    -fx-border-radius: 5;
+    -fx-border-width: 1px;
+}
+
+/* Course stats box styling */
+.stats-box {
+    -fx-background-color: #f5f5f5;
+    -fx-background-radius: 5;
+    -fx-padding: 15;
+    -fx-spacing: 10;
+    -fx-border-color: #eeeeee;
+    -fx-border-radius: 5;
+}
+
+.stat-row {
+    -fx-spacing: 10;
+    -fx-alignment: center-left;
+}
+
+.stat-icon {
+    -fx-font-size: 16px;
+    -fx-text-fill: #666666;
+}
+
+.stat-value {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.stat-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #666666;
+}
+
+/* Start learning button styling */
+.start-learning-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-padding: 12px 24px;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1);
+}
+
+.start-learning-button:hover {
+    -fx-background-color: #45a049;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 0, 2);
+}
+
+.start-learning-button:pressed {
+    -fx-background-color: #3d8b3d;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 3, 0, 0, 1);
+}
+
+/* Continue learning button styling */
+.continue-learning-button {
+    -fx-background-color: #007bff;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-padding: 12px 24px;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1);
+}
+
+.continue-learning-button:hover {
+    -fx-background-color: #0069d9;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 0, 2);
+}
+
+.continue-learning-button:pressed {
+    -fx-background-color: #0062cc;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 3, 0, 0, 1);
+}
+
+/* Course content section */
+.content-section {
+    -fx-padding: 15 0;
+}
+
+.section-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-padding: 0 0 10 0;
+}
+
+/* Lessons list styling */
+.lessons-list {
+    -fx-background-color: white;
+    -fx-background-radius: 5;
+    -fx-border-color: #eeeeee;
+    -fx-border-radius: 5;
+    -fx-pref-height: 180px;
+    -fx-min-height: 180px;
+}
+
+.lessons-list .list-cell {
+    -fx-padding: 10 15;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #eeeeee transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.lessons-list .list-cell:hover {
+    -fx-background-color: #f5f5f5;
+}
+
+.lessons-list .list-cell:empty {
+    -fx-border-width: 0;
+}
+
+/* Back button styling */
+.back-button {
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #555555;
+    -fx-font-size: 14px;
+    -fx-padding: 8 15;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+}
+
+.back-button:hover {
+    -fx-background-color: #e0e0e0;
+}
+
+.back-button:pressed {
+    -fx-background-color: #d0d0d0;
+}
+
+/* Review section styling */
+.reviews-container {
+    -fx-padding: 15 0;
+    -fx-spacing: 15;
+}
+
+.sub-section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-padding: 0 0 5 0;
+}
+
+.add-review-container {
+    -fx-background-color: #f8f9fa;
+    -fx-background-radius: 5;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 5;
+    -fx-padding: 15;
+}
+
+.transparent-background {
+    -fx-background-color: transparent;
+}
+
+/* Review text area */
+.text-area {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.text-area:focused {
+    -fx-border-color: #4CAF50;
+}
+
+/* Review submission button */
+.primary-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 15px;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+}
+
+.primary-button:hover {
+    -fx-background-color: #45a049;
+}
+
+.primary-button:pressed {
+    -fx-background-color: #3d8b3d;
+}
+
+/* Radio buttons for review rating */
+.radio-button {
+    -fx-font-size: 14px;
+}
+
+.radio-button:selected .radio {
+    -fx-border-color: #4CAF50;
+    -fx-border-width: 2px;
+}
+
+.radio-button:selected .dot {
+    -fx-background-color: #4CAF50;
+}
+
+/* Status message */
+.status-message {
+    -fx-font-size: 14px;
+    -fx-text-fill: #28a745;
+    -fx-padding: 5 0 0 0;
+}
+
+/* Edit and delete buttons for reviews */
+.edit-button {
+    -fx-background-color: #f8f9fa;
+    -fx-text-fill: #333333;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+    -fx-cursor: hand;
+}
+
+.edit-button:hover {
+    -fx-background-color: #e9ecef;
+}
+
+.delete-button {
+    -fx-background-color: #f8f9fa;
+    -fx-text-fill: #dc3545;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+    -fx-cursor: hand;
+}
+
+.delete-button:hover {
+    -fx-background-color: #f8d7da;
+    -fx-text-fill: #c82333;
+}
+
+/* Review prompt styles */
+.review-prompt {
+    -fx-font-size: 14px;
+    -fx-text-fill: #6c757d;
+    -fx-background-color: #f8f9fa;
+    -fx-background-radius: 5;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 5;
+    -fx-padding: 10;
+    -fx-alignment: center;
+}
+
+/* Sentiment styles */
+.sentiment-badge {
+    -fx-background-radius: 4px;
+    -fx-text-fill: white;
+    -fx-padding: 3px 8px;
+    -fx-font-weight: bold;
+    -fx-font-size: 11px;
+}
+
+.sentiment-positive {
+    -fx-background-color: #28a745;
+}
+
+.sentiment-weak-positive {
+    -fx-background-color: #9fd876;
+}
+
+.sentiment-neutral {
+    -fx-background-color: #ffc107;
+}
+
+.sentiment-weak-negative {
+    -fx-background-color: #ff9800;
+}
+
+.sentiment-negative {
+    -fx-background-color: #dc3545;
+} 

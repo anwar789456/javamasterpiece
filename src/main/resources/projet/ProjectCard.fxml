@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<AnchorPane prefWidth="350" prefHeight="300" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.controller.projet.ProjectCardController"
+            style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, #b0b0b0, 10, 0, 0, 2);">
+    
+    <!-- Project Image -->
+    <ImageView fx:id="imgProject" fitWidth="350" fitHeight="120" preserveRatio="false" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <Image url="@../images/project-placeholder.jpg"/>
+    </ImageView>
+    
+    <!-- Project Content -->
+    <VBox spacing="10" AnchorPane.topAnchor="120" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0" padding="20">
+        <!-- Project Title -->
+        <Text fx:id="lblProjectName" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+        
+        <!-- Project Description -->
+        <Text fx:id="lblDescription" wrapText="true" style="-fx-text-fill: #666666; -fx-font-size: 14;" maxHeight="60"/>
+        
+        <!-- Project Details -->
+        <VBox spacing="5" style="-fx-padding: 10 0 0 0;">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <ImageView fitWidth="16" fitHeight="16">
+                    <Image url="@../images/calendar-icon.png"/>
+                </ImageView>
+                <Text fx:id="lblDates" style="-fx-text-fill: #333333;"/>
+            </HBox>
+            
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <ImageView fitWidth="16" fitHeight="16">
+                    <Image url="@../images/status-icon.png"/>
+                </ImageView>
+                <Text fx:id="lblStatus" style="-fx-font-weight: bold;"/>
+            </HBox>
+        </VBox>
+        
+        <!-- Apply Button -->
+        <Button fx:id="btnPostuler" text="Apply Now" onAction="#onPostuler" 
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;"
+                maxWidth="Infinity" AnchorPane.bottomAnchor="20"/>
+    </VBox>
+</AnchorPane> 

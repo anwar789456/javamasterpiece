@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox spacing="18" alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.projet.MyApplicationsViewController" style="-fx-background-color: white; -fx-padding: 28; -fx-background-radius: 14;">
+    <Label text="My Applications" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #2196F3;"/>
+    <TableView fx:id="applicationsTable" prefHeight="320" styleClass="modern-table">
+        <columns>
+            <TableColumn fx:id="colProjectName" text="Project Name" prefWidth="180"/>
+            <TableColumn fx:id="colStatus" text="Status" prefWidth="100"/>
+            <TableColumn fx:id="colCancel" text="" prefWidth="100"/>
+        </columns>
+    </TableView>
+    <Button text="Close" onAction="#handleClose" styleClass="modern-close-btn"/>
+</VBox> 

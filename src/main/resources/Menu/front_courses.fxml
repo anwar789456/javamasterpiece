@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.StackPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.menu.CoursesDisplayController" stylesheets="@../css/menu.css">
+    <children>
+        <!-- Header Section -->
+        <VBox alignment="CENTER_LEFT" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="30.0">
+            <Label text="Courses" styleClass="front-welcome-title">
+                <font>
+                    <Font name="Segoe UI Bold" size="32.0" />
+                </font>
+                <effect>
+                    <DropShadow height="2.0" radius="0.5" width="2.0" color="#00000022" />
+                </effect>
+            </Label>
+            <Label text="Explore our available courses and enhance your skills" styleClass="front-welcome-subtitle">
+                <font>
+                    <Font name="Segoe UI" size="16.0" />
+                </font>
+                <VBox.margin>
+                    <Insets top="10.0" bottom="10.0" />
+                </VBox.margin>
+            </Label>
+            
+            <!-- Filter Options -->
+            <HBox spacing="15.0" alignment="CENTER_LEFT">
+                <Button fx:id="interestsButton" text="Filter by Interests" styleClass="filter-button" onAction="#handleInterestsButtonClick">
+                    <graphic>
+                        <Label text="🔍" />
+                    </graphic>
+                </Button>
+                <Button text="All Courses" styleClass="filter-button" onAction="#refreshCourses" />
+                <Button text="Free Courses" styleClass="filter-button" onAction="#showFreeCourses" />
+                <Button text="Paid Courses" styleClass="filter-button" onAction="#showPaidCourses" />
+                <VBox.margin>
+                    <Insets top="10.0" bottom="10.0" />
+                </VBox.margin>
+            </HBox>
+        </VBox>
+        
+        <!-- Courses Scrollable Container -->
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="courses-scroll-pane" vbarPolicy="ALWAYS" 
+                   AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="160.0">
+            <content>
+                <FlowPane fx:id="coursesContainer" hgap="30.0" vgap="30.0" prefWrapLength="700.0">
+                    <padding>
+                        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0" />
+                    </padding>
+                </FlowPane>
+            </content>
+        </ScrollPane>
+        
+        <!-- Interests Selection Popup -->
+        <StackPane fx:id="interestsPopup" visible="false" AnchorPane.topAnchor="120.0" AnchorPane.leftAnchor="40.0" mouseTransparent="false">
+            <VBox styleClass="interests-popup" spacing="10" maxWidth="300.0" maxHeight="400.0">
+                <padding>
+                    <Insets top="15.0" right="15.0" bottom="15.0" left="15.0" />
+                </padding>
+                <Label text="Select Your Interests" styleClass="popup-title" />
+                <TextField fx:id="interestSearchField" promptText="Search interests..." styleClass="interest-search-field" />
+                <ScrollPane fitToWidth="true" styleClass="interests-scroll-pane" VBox.vgrow="ALWAYS">
+                    <VBox fx:id="interestsContainer" spacing="8.0" styleClass="interests-container" />
+                </ScrollPane>
+                <HBox spacing="10.0" alignment="CENTER_RIGHT">
+                    <Button text="Cancel" styleClass="cancel-button" onAction="#closeInterestsPopup" />
+                    <Button text="Apply Filter" styleClass="apply-button" onAction="#applyInterestsFilter" />
+                </HBox>
+            </VBox>
+        </StackPane>
+    </children>
+</AnchorPane> 

@@ -1,0 +1,139 @@
+/* Interests Popup Styling */
+
+.interests-popup {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 15, 0, 0, 5);
+    -fx-background-radius: 5;
+}
+
+.header-label {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.section-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.interests-search {
+    -fx-background-radius: 20;
+    -fx-padding: 8 12 8 12;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 20;
+    -fx-font-size: 13px;
+}
+
+/* Fix for ScrollPane and its contents */
+.interests-container {
+    -fx-background-color: white;
+    -fx-background-radius: 5;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 5;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0, 0, 0);
+    -fx-padding: 5px;
+    -fx-border-width: 1;
+}
+
+/* ScrollPane viewport background fix */
+.interests-container > .viewport {
+    -fx-background-color: white;
+}
+
+/* ScrollPane content background fix */
+.interests-container .content {
+    -fx-background-color: white;
+}
+
+.interest-checkbox {
+    -fx-padding: 5 10 5 10;
+    -fx-font-weight: 700;
+    -fx-text-fill: black;
+}
+
+/* Checkbox styling for black box with white checkmark */
+.interest-checkbox .box {
+    -fx-background-color: white;
+    -fx-border-color: #bdc3c7;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 3;
+}
+
+.interest-checkbox:selected .box {
+    -fx-background-color: black;
+    -fx-border-color: black;
+}
+
+.interest-checkbox:selected .mark {
+    -fx-background-color: white;
+}
+
+.interest-tag {
+    -fx-background-color: #f8f8f8;
+    -fx-background-radius: 15;
+    -fx-padding: 5 12 5 12;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 15;
+    -fx-alignment: center;
+    -fx-font-weight: 700;
+    -fx-text-fill: #333333;
+}
+
+.course-count {
+    -fx-text-fill: #999999;
+    -fx-font-size: 11px;
+    -fx-padding: 0 0 0 2;
+    -fx-font-weight: normal;
+}
+
+.interest-tag-close {
+    -fx-text-fill: #999999;
+    -fx-padding: 0 0 0 5;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.interest-tag-close:hover {
+    -fx-text-fill: #666666;
+}
+
+.apply-button {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    -fx-background-radius: 3;
+    -fx-padding: 8 15 8 15;
+    -fx-cursor: hand;
+    -fx-font-weight: 700;
+}
+
+.apply-button:hover {
+    -fx-background-color: #333333;
+}
+
+.cancel-button {
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #333333;
+    -fx-background-radius: 3;
+    -fx-padding: 8 15 8 15;
+    -fx-cursor: hand;
+    -fx-font-weight: 700;
+}
+
+.cancel-button:hover {
+    -fx-background-color: #e0e0e0;
+}
+
+.error-message {
+    -fx-text-fill: #d32f2f;
+    -fx-font-size: 12px;
+}
+
+/* Style for the "No interests selected" message */
+.no-interests-message {
+    -fx-text-fill: #999999;
+    -fx-font-style: italic;
+    -fx-padding: 10;
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.layout.Region?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.controller.quiz.FrontQuiz"
+      stylesheets="@../styles/quiz.css"
+      spacing="20">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Header Section -->
+    <HBox styleClass="header" spacing="20" alignment="CENTER_LEFT">
+        <Button fx:id="returnButton" text="Retour" onAction="#handleReturn" styleClass="return-button">
+            <graphic>
+                <Label text="←"/>
+            </graphic>
+        </Button>
+        <Label text="Quiz Disponibles" styleClass="title"/>
+        <Button text="Historique" onAction="#handleShowHistory"/>
+    </HBox>
+    
+    <!-- Search and Filter Section -->
+    <HBox spacing="15" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Rechercher un quiz..." styleClass="search-field"/>
+        <ComboBox fx:id="statusFilter" promptText="Filtrer par statut" styleClass="filter-combo"/>
+    </HBox>
+    
+    <!-- Quiz Grid -->
+    <FlowPane fx:id="quizGrid" hgap="20" vgap="20" alignment="CENTER">
+        <!-- Quiz cards will be added here dynamically -->
+    </FlowPane>
+
+</VBox> 

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.forum.ForumController">
+    <children>
+        <VBox spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </padding>
+            <children>
+                <Label text="Forum" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+                
+                <!-- Button to start new post -->
+                <HBox spacing="10.0">
+                    <Button text="New Post" onAction="#handleNewPost" style="-fx-background-color: #55aa55;"/>
+                </HBox>
+                
+                <!-- New Post Section -->
+                <VBox spacing="5.0">
+                    <Label text="Create New Post"/>
+                    <TextField fx:id="titleTextField" promptText="Title"/>
+                    <TextArea fx:id="postTextField" promptText="Content" prefHeight="100.0"/>
+                    <TextField fx:id="tagTextField" promptText="Tags (comma separated)"/>
+                    <Button fx:id="postButton" text="Create Post" onAction="#handlePost"/>
+                </VBox>
+                
+                <!-- Posts List -->
+                <ListView fx:id="forumListView" prefHeight="200.0" prefWidth="580.0"/>
+                
+                <!-- Post Details -->
+                <VBox fx:id="postDetailsBox" spacing="5.0" visible="false">
+                    <Label text="Post Details"/>
+                    <HBox spacing="10.0">
+                        <Button text="Like" onAction="#handleLike"/>
+                        <Button text="Dislike" onAction="#handleDislike"/>
+                        <Label fx:id="likesLabel" text="Likes: 0"/>
+                        <Label fx:id="dislikesLabel" text="Dislikes: 0"/>
+                        <Button text="Delete Post" onAction="#handleDeletePost" style="-fx-background-color: #ff5555;"/>
+                    </HBox>
+                    
+                    <!-- Comments Section -->
+                    <Label text="Comments"/>
+                    <ListView fx:id="commentsListView" prefHeight="150.0" prefWidth="580.0"/>
+                    <HBox spacing="10.0">
+                        <TextArea fx:id="commentTextArea" promptText="Add a comment" prefHeight="50.0" prefWidth="430.0"/>
+                        <Button text="Add Comment" onAction="#handleComment"/>
+                        <Button text="Edit Comment" onAction="#handleEditComment" style="-fx-background-color: #ffaa55;"/>
+                        <Button text="Update Comment" onAction="#handleUpdateComment" style="-fx-background-color: #55aa55;"/>
+                        <Button text="Delete Comment" onAction="#handleDeleteComment" style="-fx-background-color: #ff5555;"/>
+                    </HBox>
+                </VBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane> 

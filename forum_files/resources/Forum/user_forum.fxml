@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #f8f9fa;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.forum.UserForumController">
+    <children>
+        <VBox spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <padding>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+            </padding>
+            <children>
+                <!-- Header with gradient background -->
+                <HBox alignment="CENTER_LEFT" spacing="20.0" style="-fx-background-color: linear-gradient(to right, #3a7bd5, #00d2ff); -fx-background-radius: 8; -fx-padding: 15;">
+                    <Label text="Community Forum" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white;">
+                        <font>
+                            <Font name="System Bold" size="28.0" />
+                        </font>
+                    </Label>
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button text="Create New Post" onAction="#handleNewPost" style="-fx-background-color: white; -fx-text-fill: #3a7bd5; -fx-font-weight: bold; -fx-background-radius: 20; -fx-padding: 10 20;">
+                        <font>
+                            <Font name="System Bold" size="12.0" />
+                        </font>
+                    </Button>
+                </HBox>
+                
+                <SplitPane dividerPositions="0.3" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+                    <items>
+                        <!-- Left Panel - Posts List with card-like appearance -->
+                        <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #e0e0e0; -fx-border-width: 1; -fx-padding: 15;">
+                            <Label text="RECENT DISCUSSIONS" style="-fx-font-weight: bold; -fx-text-fill: #3a7bd5;">
+                                <font>
+                                    <Font name="System Bold" size="14.0" />
+                                </font>
+                            </Label>
+                            <Separator />
+                            <ListView fx:id="forumListView" VBox.vgrow="ALWAYS" style="-fx-background-radius: 4; -fx-background-color: transparent; -fx-border-color: transparent;"/>
+                        </VBox>
+                        
+                        <!-- Right Panel - Post Details and Interactions -->
+                        <ScrollPane fitToWidth="true" style="-fx-background: transparent; -fx-border-color: transparent; -fx-background-color: transparent;">
+                            <content>
+                                <VBox spacing="20.0">
+                                    <!-- Post Creation Form -->
+                                    <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #e0e0e0; -fx-border-width: 1; -fx-padding: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+                                        <Label text="Start a Discussion" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #303030;">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Separator />
+                                        <Label text="Title" style="-fx-font-weight: bold; -fx-text-fill: #505050;"/>
+                                        <TextField fx:id="titleTextField" promptText="What's your topic about?" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #e0e0e0; -fx-padding: 8;"/>
+                                        <HBox alignment="CENTER_RIGHT">
+                                            <Label fx:id="titleCountLabel" text="0/100" style="-fx-font-size: 11px; -fx-text-fill: #888888;"/>
+                                        </HBox>
+                                        
+                                        <Label text="Content" style="-fx-font-weight: bold; -fx-text-fill: #505050;"/>
+                                        <TextArea fx:id="postTextField" promptText="Share your thoughts..." prefHeight="120.0" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #e0e0e0;"/>
+                                        <HBox alignment="CENTER_RIGHT">
+                                            <Label fx:id="contentCountLabel" text="0/5000" style="-fx-font-size: 11px; -fx-text-fill: #888888;"/>
+                                        </HBox>
+                                        
+                                        <Label text="Tags" style="-fx-font-weight: bold; -fx-text-fill: #505050;"/>
+                                        <TextField fx:id="tagTextField" promptText="e.g. programming, java, help" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #e0e0e0; -fx-padding: 8;"/>
+                                        <Label text="Tags should contain only letters, numbers, hyphens and underscores (comma separated)" style="-fx-font-size: 11px; -fx-text-fill: #888888;"/>
+                                        
+                                        <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                                            <Button fx:id="postButton" text="Publish Post" onAction="#handlePost" style="-fx-background-color: #3a7bd5; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-padding: 10 20;">
+                                                <font>
+                                                    <Font name="System Bold" size="12.0" />
+                                                </font>
+                                            </Button>
+                                        </HBox>
+                                    </VBox>
+                                    
+                                    <!-- Post Details Section -->
+                                    <VBox fx:id="postDetailsBox" spacing="15.0" visible="false" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #e0e0e0; -fx-border-width: 1; -fx-padding: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+                                        <!-- Post Content with better spacing and typography -->
+                                        <Label fx:id="postTitleLabel" style="-fx-font-weight: bold; -fx-font-size: 22px; -fx-text-fill: #303030;">
+                                            <font>
+                                                <Font name="System Bold" size="22.0" />
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="postTagsLabel" style="-fx-font-style: italic; -fx-text-fill: #606060;"/>
+                                        <Separator />
+                                        <Label fx:id="postContentLabel" wrapText="true" style="-fx-text-fill: #404040; -fx-font-size: 14px;">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </Label>
+                                        
+                                        <!-- Reactions Section with improved buttons -->
+                                        <HBox spacing="15.0" alignment="CENTER_LEFT" style="-fx-padding: 10; -fx-background-color: #f8f9fa; -fx-background-radius: 4;">
+                                            <Button text="👍 Like" onAction="#handleLike" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 20;"/>
+                                            <Button text="👎 Dislike" onAction="#handleDislike" style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-background-radius: 20;"/>
+                                            <Label fx:id="likesLabel" text="Likes: 0" style="-fx-text-fill: #4CAF50; -fx-font-weight: bold;"/>
+                                            <Label fx:id="dislikesLabel" text="Dislikes: 0" style="-fx-text-fill: #FF9800; -fx-font-weight: bold;"/>
+                                        </HBox>
+                                        
+                                        <!-- Comments Section with improved styling -->
+                                        <VBox spacing="10.0" style="-fx-background-color: #f8f9fa; -fx-background-radius: 8; -fx-padding: 15;">
+                                            <Label text="Discussion" style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #303030;">
+                                                <font>
+                                                    <Font name="System Bold" size="16.0" />
+                                                </font>
+                                            </Label>
+                                            <ListView fx:id="commentsListView" prefHeight="180.0" style="-fx-background-color: transparent; -fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #e0e0e0;"/>
+                                            
+                                            <VBox spacing="5.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #e0e0e0; -fx-border-width: 1; -fx-padding: 10;">
+                                                <Label text="Add a comment" style="-fx-font-weight: bold; -fx-text-fill: #505050;"/>
+                                                <TextArea fx:id="commentTextArea" promptText="Join the conversation..." prefHeight="60.0" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #e0e0e0;"/>
+                                                <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                                                    <Label fx:id="commentCountLabel" text="0/1000" style="-fx-font-size: 11px; -fx-text-fill: #888888;"/>
+                                                    <Button text="Post Comment" onAction="#handleComment" style="-fx-background-color: #3a7bd5; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-padding: 8 15;"/>
+                                                </HBox>
+                                            </VBox>
+                                        </VBox>
+                                    </VBox>
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+                    </items>
+                </SplitPane>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane> 

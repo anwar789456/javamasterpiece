@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.menu.FrontMenu" stylesheets="@menu.css">
+    <children>
+        <!-- Top Navigation Bar -->
+        <HBox styleClass="top-bar" prefHeight="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <padding>
+                <Insets top="0.0" right="20.0" bottom="0.0" left="20.0" />
+            </padding>
+            <children>
+                <!-- Logo/Brand -->
+                <Label styleClass="app-logo" text="ESPRIT" alignment="CENTER_LEFT">
+                    <font>
+                        <Font name="Segoe UI Bold" size="24.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets right="40.0" />
+                    </HBox.margin>
+                </Label>
+                
+                <!-- Navigation Links -->
+                <HBox alignment="CENTER_LEFT" spacing="30.0" HBox.hgrow="ALWAYS">
+                    <Button fx:id="homeButton" styleClass="nav-button" text="Home" />
+                    <Button fx:id="forumButton" styleClass="nav-button" text="Forum" />
+                    <Button fx:id="projectsButton" styleClass="nav-button" text="Projects" />
+                    <Button fx:id="coursesButton" styleClass="nav-button" text="Courses" />
+                    <Button fx:id="webinarsButton" styleClass="nav-button" text="Webinars" />
+                    <Button fx:id="competitionsButton" styleClass="nav-button" text="Competitions" />
+                </HBox>
+                
+                <!-- User Profile Button -->
+                <Button fx:id="profileButton" styleClass="profile-button" text="Account">
+                    <graphic>
+                        <Label text="👤" />
+                    </graphic>
+                </Button>
+            </children>
+        </HBox>
+
+        <!-- Main Content Area -->
+        <AnchorPane fx:id="contentPane" styleClass="front-content-pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+            <!-- Welcome content -->
+            <VBox alignment="CENTER" spacing="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+                <children>
+                    <Label text="Welcome to Esprit Learning Platform" styleClass="front-welcome-title">
+                        <effect>
+                            <DropShadow height="2.0" radius="0.5" width="2.0" color="#00000022" />
+                        </effect>
+                    </Label>
+                    <Label text="Explore the platform to access forums, courses, and more" styleClass="front-welcome-subtitle"/>
+                    
+                    <!-- Feature Cards -->
+                    <HBox alignment="CENTER" spacing="30.0" prefHeight="300.0">
+                        <padding>
+                            <Insets top="50.0" right="50.0" bottom="50.0" left="50.0" />
+                        </padding>
+                        
+                        <!-- Forum Card -->
+                        <VBox styleClass="feature-card" alignment="CENTER" prefWidth="200.0" prefHeight="220.0" onMouseClicked="#handleForumButton">
+                            <Label text="📝" styleClass="feature-icon" />
+                            <Label text="Forum" styleClass="feature-title" />
+                            <Label text="Discuss with other students and share your ideas" styleClass="feature-description" wrapText="true" textAlignment="CENTER" />
+                        </VBox>
+                        
+                        <!-- Courses Card -->
+                        <VBox styleClass="feature-card" alignment="CENTER" prefWidth="200.0" prefHeight="220.0" onMouseClicked="#handleCoursesButton">
+                            <Label text="📚" styleClass="feature-icon" />
+                            <Label text="Courses" styleClass="feature-title" />
+                            <Label text="Access learning materials and tutorials" styleClass="feature-description" wrapText="true" textAlignment="CENTER" />
+                        </VBox>
+                        
+                        <!-- Webinars Card -->
+                        <VBox styleClass="feature-card" alignment="CENTER" prefWidth="200.0" prefHeight="220.0" onMouseClicked="#handleWebinarsButton">
+                            <Label text="📹" styleClass="feature-icon" />
+                            <Label text="Webinars" styleClass="feature-title" />
+                            <Label text="Attend live sessions with instructors" styleClass="feature-description" wrapText="true" textAlignment="CENTER" />
+                        </VBox>
+                        
+                        <!-- Competitions Card -->
+                        <VBox styleClass="feature-card" alignment="CENTER" prefWidth="200.0" prefHeight="220.0" onMouseClicked="#handleCompetitionsButton">
+                            <Label text="🏆" styleClass="feature-icon" />
+                            <Label text="Competitions" styleClass="feature-title" />
+                            <Label text="Participate in challenges and win prizes" styleClass="feature-description" wrapText="true" textAlignment="CENTER" />
+                        </VBox>
+                    </HBox>
+                </children>
+            </VBox>
+        </AnchorPane>
+    </children>
+</AnchorPane> 

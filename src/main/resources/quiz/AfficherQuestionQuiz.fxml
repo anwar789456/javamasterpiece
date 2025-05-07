@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.controller.admin.quiz.AfficherQuestionQuiz"
+      spacing="10">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button fx:id="returnButton" text="Retour" onAction="#handleReturn" style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+        <Label text="Gestion des Questions" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <TextField fx:id="searchField" promptText="Rechercher une question..." prefWidth="300">
+            <style>
+                -fx-background-color: white;
+                -fx-border-color: #ddd;
+                -fx-border-radius: 5;
+                -fx-padding: 5 10 5 10;
+            </style>
+        </TextField>
+    </HBox>
+    
+    <TableView fx:id="questionTableView" prefHeight="400">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="idQuizColumn" text="ID Quiz" prefWidth="70"/>
+            <TableColumn fx:id="questionColumn" text="Question" prefWidth="200"/>
+            <TableColumn fx:id="option1Column" text="Option 1" prefWidth="100"/>
+            <TableColumn fx:id="option2Column" text="Option 2" prefWidth="100"/>
+            <TableColumn fx:id="option3Column" text="Option 3" prefWidth="100"/>
+            <TableColumn fx:id="option4Column" text="Option 4" prefWidth="100"/>
+            <TableColumn fx:id="bonneReponseColumn" text="Bonne Réponse" prefWidth="100"/>
+            <TableColumn fx:id="typeQuestionColumn" text="Type" prefWidth="100"/>
+        </columns>
+        <style>
+            -fx-selection-bar: #2196F3;
+            -fx-selection-bar-non-focused: #90CAF9;
+        </style>
+    </TableView>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button fx:id="refreshButton" text="Actualiser" onAction="#loadQuestionData" style="-fx-background-color: #757575; -fx-text-fill: white;"/>
+        <Button fx:id="addButton" text="Ajouter" onAction="#handleAdd" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+        <Button fx:id="modifyButton" text="Modifier" onAction="#handleModify" style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+        <Button fx:id="deleteButton" text="Supprimer" onAction="#handleDelete" style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+    </HBox>
+
+</VBox> 

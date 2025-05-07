@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.effect.DropShadow?>
+
+<AnchorPane prefHeight="900.0" prefWidth="800.0" style="-fx-background-color: #f5f5f7;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.user.AfficherUser">
+    <children>
+        <!-- Optimized ScrollPane -->
+        <ScrollPane AnchorPane.topAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                    style="-fx-background-color: transparent; -fx-background: transparent;"
+                    fitToWidth="true"
+                    hbarPolicy="NEVER"
+                    vbarPolicy="AS_NEEDED"
+                    cache="true">
+            <content>
+                <VBox alignment="TOP_CENTER" prefWidth="800.0" spacing="25.0" style="-fx-background-color: #f5f5f7;">
+                    <padding>
+                        <Insets top="30.0" right="40.0" bottom="30.0" left="40.0"/>
+                    </padding>
+
+                    <!-- Header Section with Card Effect -->
+                    <StackPane style="-fx-background-color: white; -fx-background-radius: 10px; -fx-padding: 20px;">
+                        <VBox alignment="CENTER" spacing="15">
+                            <Label text="My Account" style="-fx-font-weight: bold; -fx-text-fill: #2D3142;">
+                                <font>
+                                    <Font name="System Bold" size="28.0"/>
+                                </font>
+                            </Label>
+
+                            <!-- Profile Image with Circle Crop -->
+                            <StackPane>
+                                <Circle radius="60" fill="white" />
+                                <ImageView fx:id="userImageView" fitHeight="115.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true" />
+                            </StackPane>
+
+                            <Button fx:id="uploadImageButton" text="Change Profile Picture"
+                                    style="-fx-background-color: transparent; -fx-text-fill: #4361EE; -fx-border-color: #4361EE; -fx-border-radius: 20px; -fx-cursor: hand;"
+                                    prefWidth="180.0" prefHeight="35.0" />
+                        </VBox>
+                        <effect>
+                            <DropShadow radius="5.0" color="#00000022" />
+                        </effect>
+                    </StackPane>
+
+                    <!-- User Information Form with Card Effect -->
+                    <StackPane style="-fx-background-color: white; -fx-background-radius: 10px; -fx-padding: 25px;">
+                        <GridPane hgap="15" vgap="20" alignment="CENTER">
+                            <columnConstraints>
+                                <ColumnConstraints minWidth="120.0" prefWidth="150.0"/>
+                                <ColumnConstraints minWidth="250.0" prefWidth="500.0"/>
+                            </columnConstraints>
+
+                            <!-- Name Field -->
+                            <Label text="Name" style="-fx-font-weight: bold; -fx-text-fill: #2D3142;" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                            <VBox spacing="2" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                <TextField fx:id="nameField" promptText="Your name"
+                                           style="-fx-background-radius: 5px; -fx-border-radius: 5px; -fx-border-color: #E0E0E0; -fx-padding: 10px;"/>
+                                <Label fx:id="nameErrorLabel" style="-fx-text-fill: #FF5C58; -fx-font-size: 11px;" visible="false" />
+                            </VBox>
+
+                            <!-- Email Field -->
+                            <Label text="Email" style="-fx-font-weight: bold; -fx-text-fill: #2D3142;" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                            <VBox spacing="2" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <TextField fx:id="emailField" promptText="Your email address"
+                                           style="-fx-background-radius: 5px; -fx-border-radius: 5px; -fx-border-color: #E0E0E0; -fx-padding: 10px;"/>
+                                <Label fx:id="emailErrorLabel" style="-fx-text-fill: #FF5C58; -fx-font-size: 11px;" visible="false" />
+                            </VBox>
+
+                            <!-- Password Field -->
+                            <Label text="Password" style="-fx-font-weight: bold; -fx-text-fill: #2D3142;" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                            <VBox spacing="2" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                <PasswordField fx:id="passwordField" promptText="Update your password"
+                                               style="-fx-background-radius: 5px; -fx-border-radius: 5px; -fx-border-color: #E0E0E0; -fx-padding: 10px;"/>
+                                <Label fx:id="passwordErrorLabel" style="-fx-text-fill: #FF5C58; -fx-font-size: 11px;" visible="false" />
+                            </VBox>
+
+                            <!-- Phone Number Field -->
+                            <Label text="Phone Number" style="-fx-font-weight: bold; -fx-text-fill: #2D3142;" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                            <VBox spacing="2" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                <TextField fx:id="phoneField" promptText="Your phone number"
+                                           style="-fx-background-radius: 5px; -fx-border-radius: 5px; -fx-border-color: #E0E0E0; -fx-padding: 10px;"/>
+                                <Label fx:id="phoneErrorLabel" style="-fx-text-fill: #FF5C58; -fx-font-size: 11px;" visible="false" />
+                            </VBox>
+
+                            <!-- Role Field (Read-only) -->
+                            <Label text="Role" style="-fx-font-weight: bold; -fx-text-fill: #2D3142;" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                            <TextField fx:id="roleField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4"
+                                       style="-fx-background-radius: 5px; -fx-background-color: #F8F9FA; -fx-border-radius: 5px; -fx-border-color: #E0E0E0; -fx-padding: 10px;"/>
+                        </GridPane>
+                        <effect>
+                            <DropShadow radius="5.0" color="#00000022" />
+                        </effect>
+                    </StackPane>
+
+                    <!-- Status message -->
+                    <Label fx:id="statusLabel" alignment="CENTER" wrapText="true" prefWidth="600.0" />
+
+                    <!-- Action Buttons -->
+                    <HBox alignment="CENTER" spacing="25.0">
+                        <Button fx:id="updateButton" text="Save Changes" prefWidth="180.0" prefHeight="40.0"
+                                style="-fx-background-color: #4361EE; -fx-text-fill: white; -fx-background-radius: 30px; -fx-font-weight: bold; -fx-cursor: hand;" />
+
+                        <Button fx:id="deleteButton" text="Delete Account" prefWidth="180.0" prefHeight="40.0"
+                                style="-fx-background-color: white; -fx-text-fill: #FF5C58; -fx-border-color: #FF5C58; -fx-border-radius: 30px; -fx-font-weight: bold; -fx-cursor: hand;" />
+
+                        <Button fx:id="backButton" text="Back" prefWidth="120.0" prefHeight="40.0"
+                                style="-fx-background-color: #2D3142; -fx-text-fill: white; -fx-background-radius: 30px; -fx-font-weight: bold; -fx-cursor: hand;" />
+                    </HBox>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

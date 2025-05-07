@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<VBox spacing="10" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.controller.projet.ProjectCollabHubController"
+      style="-fx-background-color: #f8f9fa;">
+    
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Project Header -->
+    <HBox spacing="20" alignment="CENTER_LEFT">
+        <VBox>
+            <Text fx:id="projectTitle" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+            <Text fx:id="projectDescription" style="-fx-font-size: 14px; -fx-fill: #666;"/>
+        </VBox>
+        <Label fx:id="statusLabel" style="-fx-padding: 5 10; -fx-background-radius: 15;"/>
+    </HBox>
+
+    <!-- Main Content Area -->
+    <SplitPane dividerPositions="0.7" VBox.vgrow="ALWAYS">
+        <!-- Left Side: Chat and Tasks -->
+        <VBox spacing="10">
+            <!-- Chat Section -->
+            <VBox spacing="5" VBox.vgrow="ALWAYS" style="-fx-background-color: white; -fx-background-radius: 10;">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <Label text="Team Chat" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent;">
+                    <VBox fx:id="chatArea" spacing="10"/>
+                </ScrollPane>
+                <HBox spacing="10">
+                    <TextField fx:id="messageField" HBox.hgrow="ALWAYS" promptText="Type your message..."/>
+                    <Button text="Send" onAction="#sendMessage" style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+                </HBox>
+            </VBox>
+
+            <!-- Task Board -->
+            <VBox spacing="5" VBox.vgrow="ALWAYS" style="-fx-background-color: white; -fx-background-radius: 10;">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Task Board" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                    <Button text="+ Add Task" onAction="#addTask" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+                </HBox>
+                <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent;">
+                    <VBox fx:id="taskBoard" spacing="10"/>
+                </ScrollPane>
+            </VBox>
+        </VBox>
+
+        <!-- Right Side: Team Members and Files -->
+        <VBox spacing="10">
+            <!-- Team Members Section -->
+            <VBox spacing="5" style="-fx-background-color: white; -fx-background-radius: 10;">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <Label text="Team Members" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                <ListView fx:id="teamMembersList" VBox.vgrow="ALWAYS"/>
+            </VBox>
+
+            <!-- File Sharing Section -->
+            <VBox spacing="5" VBox.vgrow="ALWAYS" style="-fx-background-color: white; -fx-background-radius: 10;">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Shared Files" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                    <Button text="Upload File" onAction="#uploadFile" style="-fx-background-color: #FF9800; -fx-text-fill: white;"/>
+                </HBox>
+                <ListView fx:id="filesList" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </VBox>
+    </SplitPane>
+</VBox> 

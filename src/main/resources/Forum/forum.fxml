@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.effect.*?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #ECEFF1;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.forum.ForumController">
+    <children>
+        <ScrollPane fitToWidth="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" style="-fx-background: transparent; -fx-background-color: transparent; -fx-padding: 0;">
+            <content>
+                <VBox spacing="15.0">
+                    <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+                    </padding>
+                    <children>
+                        <!-- Header avec un design moderne -->
+                        <HBox alignment="CENTER_LEFT" spacing="20.0" style="-fx-background-color: linear-gradient(to right, #1976D2, #64B5F6); -fx-background-radius: 12; -fx-padding: 20;">
+                            <effect>
+                                <DropShadow height="10.0" radius="4.5" width="10.0" color="rgba(0,0,0,0.2)" />
+                            </effect>
+                            <Label text="Forum Administration" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: white;">
+                                <font>
+                                    <Font name="System Bold" size="32.0" />
+                                </font>
+                            </Label>
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Button text="Nouveau Post" onAction="#handleNewPost" style="-fx-background-color: white; -fx-text-fill: #1976D2; -fx-font-weight: bold; -fx-background-radius: 24; -fx-padding: 12 25; -fx-cursor: hand;">
+                                <font>
+                                    <Font name="System Bold" size="13.0" />
+                                </font>
+                                <effect>
+                                    <DropShadow height="4.0" radius="1.5" width="4.0" color="rgba(0,0,0,0.1)" />
+                                </effect>
+                            </Button>
+                        </HBox>
+                        
+                        <!-- Section de création/édition de post -->
+                        <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #E0E0E0; -fx-border-width: 1; -fx-padding: 20;">
+                            <effect>
+                                <DropShadow height="8.0" radius="3.5" width="8.0" color="rgba(0,0,0,0.1)" />
+                            </effect>
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <Label text="Gestion de Publication" style="-fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: #303030;">
+                                    <font>
+                                        <Font name="System Bold" size="22.0" />
+                                    </font>
+                                </Label>
+                                <Region HBox.hgrow="ALWAYS" />
+                                <Label text="Administration" style="-fx-font-size: 12px; -fx-text-fill: white; -fx-background-color: #1976D2; -fx-background-radius: 12; -fx-padding: 4 10;" />
+                            </HBox>
+                            <Separator style="-fx-background-color: #E0E0E0;" />
+                            
+                            <Label text="Titre" style="-fx-font-weight: bold; -fx-text-fill: #424242; -fx-font-size: 14px;"/>
+                            <TextField fx:id="titleTextField" promptText="Titre de la publication" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #E0E0E0; -fx-padding: 10; -fx-font-size: 13px;">
+                                <effect>
+                                    <InnerShadow choke="0.2" height="3.0" radius="1.0" width="3.0" color="rgba(0,0,0,0.05)" />
+                                </effect>
+                            </TextField>
+                            
+                            <Label text="Contenu" style="-fx-font-weight: bold; -fx-text-fill: #424242; -fx-font-size: 14px;"/>
+                            <TextArea fx:id="postTextField" promptText="Contenu de la publication" prefHeight="100.0" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #E0E0E0; -fx-font-size: 13px;">
+                                <effect>
+                                    <InnerShadow choke="0.2" height="3.0" radius="1.0" width="3.0" color="rgba(0,0,0,0.05)" />
+                                </effect>
+                            </TextArea>
+                            
+                            <Label text="Tags" style="-fx-font-weight: bold; -fx-text-fill: #424242; -fx-font-size: 14px;"/>
+                            <TextField fx:id="tagTextField" promptText="Tags (séparés par des virgules)" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #E0E0E0; -fx-padding: 10; -fx-font-size: 13px;">
+                                <effect>
+                                    <InnerShadow choke="0.2" height="3.0" radius="1.0" width="3.0" color="rgba(0,0,0,0.05)" />
+                                </effect>
+                            </TextField>
+                            
+                            <HBox alignment="CENTER_RIGHT" spacing="12.0">
+                                <Button fx:id="postButton" text="Créer Publication" onAction="#handlePost" style="-fx-background-color: #1976D2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 24; -fx-padding: 12 25; -fx-cursor: hand;">
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                    <effect>
+                                        <DropShadow height="5.0" radius="2.0" width="5.0" color="rgba(0,0,0,0.2)" />
+                                    </effect>
+                                </Button>
+                            </HBox>
+                        </VBox>
+                        
+                        <!-- Split Panel avec liste des posts et détails -->
+                        <SplitPane dividerPositions="0.4" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent; -fx-border-color: transparent;" prefHeight="500.0">
+                            <items>
+                                <!-- Liste des publications -->
+                                <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #E0E0E0; -fx-border-width: 1; -fx-padding: 15;">
+                                    <effect>
+                                        <DropShadow height="8.0" radius="3.5" width="8.0" color="rgba(0,0,0,0.1)" />
+                                    </effect>
+                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                        <Label text="PUBLICATIONS" style="-fx-font-weight: bold; -fx-text-fill: #1976D2;">
+                                            <font>
+                                                <Font name="System Bold" size="16.0" />
+                                            </font>
+                                        </Label>
+                                        <Region HBox.hgrow="ALWAYS" />
+                                        <Label text="Liste" style="-fx-font-size: 12px; -fx-text-fill: #757575; -fx-background-color: #F5F5F5; -fx-background-radius: 12; -fx-padding: 4 10;" />
+                                    </HBox>
+                                    <Separator style="-fx-background-color: #E0E0E0;" />
+                                    <ListView fx:id="forumListView" VBox.vgrow="ALWAYS" style="-fx-background-radius: 8; -fx-background-color: transparent; -fx-border-color: transparent; -fx-control-inner-background: white; -fx-selection-bar: #E3F2FD; -fx-selection-bar-non-focused: #E3F2FD;"/>
+                                </VBox>
+                                
+                                <!-- Détails du post et section commentaires -->
+                                <VBox fx:id="postDetailsBox" spacing="15.0" visible="false" style="-fx-background-color: white; -fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #E0E0E0; -fx-border-width: 1; -fx-padding: 20;">
+                                    <effect>
+                                        <DropShadow height="8.0" radius="3.5" width="8.0" color="rgba(0,0,0,0.1)" />
+                                    </effect>
+                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                        <Label text="Détails de la Publication" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #303030;">
+                                            <font>
+                                                <Font name="System Bold" size="20.0" />
+                                            </font>
+                                        </Label>
+                                        <Region HBox.hgrow="ALWAYS" />
+                                        <Label text="Administration" style="-fx-font-size: 12px; -fx-text-fill: white; -fx-background-color: #1976D2; -fx-background-radius: 12; -fx-padding: 4 10;" />
+                                    </HBox>
+                                    <Separator style="-fx-background-color: #E0E0E0;" />
+                                    
+                                    <!-- Information sur l'auteur du post -->
+                                    <HBox spacing="10.0" alignment="CENTER_LEFT" style="-fx-padding: 10; -fx-background-color: #E3F2FD; -fx-background-radius: 8;">
+                                        <Label text="📝 Auteur:" style="-fx-font-weight: bold; -fx-text-fill: #1565C0; -fx-font-size: 14px;"/>
+                                        <Label fx:id="postAuthorLabel" text="Non disponible" style="-fx-text-fill: #1976D2; -fx-font-weight: bold;"/>
+                                        <Region HBox.hgrow="ALWAYS" />
+                                        <Label fx:id="postDateLabel" text="Date: Non disponible" style="-fx-text-fill: #757575;"/>
+                                    </HBox>
+                                    
+                                    <!-- Section interactions -->
+                                    <HBox spacing="12.0" alignment="CENTER_LEFT" style="-fx-padding: 10; -fx-background-color: #F5F5F5; -fx-background-radius: 8;">
+                                        <Button text="👍 Like" onAction="#handleLike" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 20; -fx-padding: 8 15; -fx-cursor: hand;">
+                                            <effect>
+                                                <DropShadow height="3.0" radius="1.0" width="3.0" color="rgba(0,0,0,0.1)" />
+                                            </effect>
+                                        </Button>
+                                        <Button text="👎 Dislike" onAction="#handleDislike" style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-background-radius: 20; -fx-padding: 8 15; -fx-cursor: hand;">
+                                            <effect>
+                                                <DropShadow height="3.0" radius="1.0" width="3.0" color="rgba(0,0,0,0.1)" />
+                                            </effect>
+                                        </Button>
+                                        <Label fx:id="likesLabel" text="Likes: 0" style="-fx-text-fill: #4CAF50; -fx-font-weight: bold; -fx-background-color: #E8F5E9; -fx-background-radius: 12; -fx-padding: 5 10;"/>
+                                        <Label fx:id="dislikesLabel" text="Dislikes: 0" style="-fx-text-fill: #FF9800; -fx-font-weight: bold; -fx-background-color: #FFF3E0; -fx-background-radius: 12; -fx-padding: 5 10;"/>
+                                        <Region HBox.hgrow="ALWAYS" />
+                                        <Button text="🗑️ Supprimer" onAction="#handleDeletePost" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-background-radius: 20; -fx-padding: 8 15; -fx-cursor: hand;">
+                                            <effect>
+                                                <DropShadow height="3.0" radius="1.0" width="3.0" color="rgba(0,0,0,0.1)" />
+                                            </effect>
+                                        </Button>
+                                    </HBox>
+                                    
+                                    <!-- Section commentaires -->
+                                    <VBox spacing="12.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 12; -fx-padding: 15;" VBox.vgrow="ALWAYS">
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <Label text="Commentaires" style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #303030;">
+                                                <font>
+                                                    <Font name="System Bold" size="16.0" />
+                                                </font>
+                                            </Label>
+                                            <Region HBox.hgrow="ALWAYS" />
+                                            <Label text="Modération" style="-fx-font-size: 12px; -fx-text-fill: white; -fx-background-color: #1976D2; -fx-background-radius: 12; -fx-padding: 4 10;" />
+                                        </HBox>
+                                        <ListView fx:id="commentsListView" VBox.vgrow="ALWAYS" minHeight="200.0" prefHeight="250.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #E0E0E0; -fx-control-inner-background: white; -fx-selection-bar: #E3F2FD; -fx-selection-bar-non-focused: #E3F2FD;">
+                                            <effect>
+                                                <InnerShadow choke="0.2" height="3.0" radius="1.0" width="3.0" color="rgba(0,0,0,0.05)" />
+                                            </effect>
+                                        </ListView>
+                                        
+                                        <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #E0E0E0; -fx-border-width: 1; -fx-padding: 15;">
+                                            <effect>
+                                                <DropShadow height="4.0" radius="1.5" width="4.0" color="rgba(0,0,0,0.05)" />
+                                            </effect>
+                                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                                <Label text="Gestion des Commentaires" style="-fx-font-weight: bold; -fx-text-fill: #424242; -fx-font-size: 14px;"/>
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Button text="📝 Éditer" onAction="#handleEditComment" style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-background-radius: 20; -fx-padding: 6 12; -fx-cursor: hand; -fx-font-size: 12px;">
+                                                    <effect>
+                                                        <DropShadow height="3.0" radius="1.0" width="3.0" color="rgba(0,0,0,0.1)" />
+                                                    </effect>
+                                                </Button>
+                                                <Button text="💬 Répondre" onAction="#handleReplyComment" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 20; -fx-padding: 6 12; -fx-cursor: hand; -fx-font-size: 12px;">
+                                                    <effect>
+                                                        <DropShadow height="3.0" radius="1.0" width="3.0" color="rgba(0,0,0,0.1)" />
+                                                    </effect>
+                                                </Button>
+                                                <Button text="🗑️ Supprimer" onAction="#handleDeleteComment" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-background-radius: 20; -fx-padding: 6 12; -fx-cursor: hand; -fx-font-size: 12px;">
+                                                    <effect>
+                                                        <DropShadow height="3.0" radius="1.0" width="3.0" color="rgba(0,0,0,0.1)" />
+                                                    </effect>
+                                                </Button>
+                                            </HBox>
+                                            <TextArea fx:id="commentTextArea" promptText="Ajouter ou modifier un commentaire..." prefHeight="60.0" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #E0E0E0; -fx-font-size: 13px;">
+                                                <effect>
+                                                    <InnerShadow choke="0.2" height="3.0" radius="1.0" width="3.0" color="rgba(0,0,0,0.05)" />
+                                                </effect>
+                                            </TextArea>
+                                            <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                                                <Button fx:id="addCommentButton" text="Ajouter Commentaire" onAction="#handleComment" style="-fx-background-color: #1976D2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-padding: 8 15; -fx-cursor: hand;">
+                                                    <effect>
+                                                        <DropShadow height="3.0" radius="1.0" width="3.0" color="rgba(0,0,0,0.1)" />
+                                                    </effect>
+                                                </Button>
+                                                <Button text="Mettre à jour" onAction="#handleUpdateComment" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-padding: 8 15; -fx-cursor: hand;">
+                                                    <effect>
+                                                        <DropShadow height="3.0" radius="1.0" width="3.0" color="rgba(0,0,0,0.1)" />
+                                                    </effect>
+                                                </Button>
+                                            </HBox>
+                                        </VBox>
+                                    </VBox>
+                                </VBox>
+                            </items>
+                        </SplitPane>
+                    </children>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane> 

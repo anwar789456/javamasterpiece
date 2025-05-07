@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="10" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.controller.projet.AIProjectAssistantController"
+      style="-fx-background-color: #f8f9fa;">
+    
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Header -->
+    <HBox alignment="CENTER" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-padding: 15;">
+        <VBox alignment="CENTER">
+            <Text text="AI Project Assistant" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-fill: #2c3e50;"/>
+            <Text text="Ask me anything about projects!" style="-fx-font-size: 14px; -fx-fill: #666;"/>
+        </VBox>
+    </HBox>
+
+    <!-- Chat Area -->
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" style="-fx-background: transparent; -fx-background-color: transparent;">
+        <VBox fx:id="chatArea" spacing="10" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 10;">
+            <!-- Welcome message will be added here -->
+        </VBox>
+    </ScrollPane>
+
+    <!-- Quick Actions -->
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="How to Join?" onAction="#askHowToJoin" 
+                style="-fx-background-color: #e3f2fd; -fx-text-fill: #1976d2; -fx-background-radius: 20;"/>
+        <Button text="Show Projects" onAction="#askShowProjects"
+                style="-fx-background-color: #e8f5e9; -fx-text-fill: #2e7d32; -fx-background-radius: 20;"/>
+        <Button text="Requirements" onAction="#askRequirements"
+                style="-fx-background-color: #fff3e0; -fx-text-fill: #f57c00; -fx-background-radius: 20;"/>
+        <Button text="Application Tips" onAction="#askApplicationTips"
+                style="-fx-background-color: #f3e5f5; -fx-text-fill: #7b1fa2; -fx-background-radius: 20;"/>
+    </HBox>
+
+    <!-- Input Area -->
+    <HBox spacing="10" alignment="CENTER">
+        <TextField fx:id="userInput" promptText="Type your question here..." HBox.hgrow="ALWAYS"
+                  style="-fx-background-radius: 20; -fx-padding: 10 15;"/>
+        <Button text="Send" onAction="#sendMessage"
+                style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 20;"/>
+    </HBox>
+</VBox> 

@@ -1,0 +1,170 @@
+/* Common Styles */
+.root {
+    -fx-background-color: #1a1a1a;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Courses Display Styles */
+.header-label {
+    -fx-text-fill: white;
+    -fx-padding: 10px;
+}
+
+.filter-box {
+    -fx-spacing: 10px;
+    -fx-padding: 10px;
+    -fx-background-color: #333333;
+    -fx-background-radius: 5px;
+}
+
+.filter-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-padding: 8px 15px;
+    -fx-cursor: hand;
+}
+
+.filter-button:hover {
+    -fx-background-color: #3e8e41;
+}
+
+.search-field {
+    -fx-background-color: #444444;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #999999;
+    -fx-background-radius: 5px;
+    -fx-padding: 8px;
+}
+
+.courses-container {
+    -fx-spacing: 15px;
+    -fx-padding: 15px;
+}
+
+.course-card {
+    -fx-background-color: #333333;
+    -fx-background-radius: 8px;
+    -fx-padding: 15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 1);
+}
+
+.course-title {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
+
+.course-description {
+    -fx-text-fill: #cccccc;
+    -fx-wrap-text: true;
+}
+
+.course-tags {
+    -fx-spacing: 5px;
+    -fx-padding: 5px 0;
+}
+
+.tag {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-background-radius: 15px;
+    -fx-padding: 3px 8px;
+    -fx-font-size: 11px;
+}
+
+/* Interests Popup Styles */
+.interests-popup {
+    -fx-background-color: #2a2a2a;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+.interests-container {
+    -fx-background-color: #2a2a2a;
+    -fx-background-radius: 10px;
+}
+
+.interests-search {
+    -fx-background-color: #444444;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #999999;
+    -fx-background-radius: 5px;
+    -fx-padding: 8px;
+}
+
+.interests-scroll, .tags-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-color: #444444;
+    -fx-border-radius: 5px;
+}
+
+.interests-scroll .viewport, .tags-scroll .viewport {
+    -fx-background-color: #333333;
+    -fx-background-radius: 3px;
+}
+
+.interests-scroll .scroll-bar, .tags-scroll .scroll-bar {
+    -fx-background-color: #444444;
+}
+
+.interests-scroll .thumb, .tags-scroll .thumb {
+    -fx-background-color: #666666;
+}
+
+.error-message {
+    -fx-text-fill: #ff6b6b;
+    -fx-font-style: italic;
+}
+
+.no-interests-message {
+    -fx-text-fill: #999999;
+    -fx-font-style: italic;
+}
+
+.apply-filter-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-padding: 8px 15px;
+    -fx-cursor: hand;
+}
+
+.apply-filter-button:hover {
+    -fx-background-color: #3e8e41;
+}
+
+.cancel-filter-button {
+    -fx-background-color: #ff5252;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-padding: 8px 15px;
+    -fx-cursor: hand;
+}
+
+.cancel-filter-button:hover {
+    -fx-background-color: #e53935;
+}
+
+.interest-checkbox {
+    -fx-text-fill: white;
+}
+
+.interest-tag {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-background-radius: 15px;
+    -fx-padding: 5px 10px;
+    -fx-alignment: center;
+}
+
+.interest-tag-close {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-padding: 0 0 0 5px;
+    -fx-cursor: hand;
+}

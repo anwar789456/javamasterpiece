@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane prefHeight="650.0" prefWidth="400.0" style="-fx-background-color: linear-gradient(to bottom right, #1a2a6c, #4286f4);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.user.SignUpController">
+    <children>
+        <VBox alignment="CENTER" layoutX="50.0" layoutY="50.0" prefHeight="550.0" prefWidth="300.0" spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 12;">
+            <padding>
+                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+            </padding>
+            <effect>
+                <DropShadow color="#00000060" height="30.0" radius="14.5" width="30.0" />
+            </effect>
+            <children>
+                <Label text="Create Account" textFill="#1a2a6c">
+                    <font>
+                        <Font name="Segoe UI Bold" size="22.0" />
+                    </font>
+                </Label>
+
+                <Separator prefWidth="250.0" />
+
+                <TextField fx:id="nameField" promptText="Full Name" style="-fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5;">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </TextField>
+                <Button layoutX="408.0" layoutY="50.0" mnemonicParsing="false" onAction="#scanName" text="Scan Name" />
+
+                <TextField fx:id="emailField" promptText="Email Address" style="-fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5;">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </TextField>
+
+                <PasswordField fx:id="passwordField" promptText="Password" style="-fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5;">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </PasswordField>
+
+                <PasswordField fx:id="confirmPasswordField" promptText="Confirm Password" style="-fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5;">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </PasswordField>
+
+                <TextField fx:id="phoneField" promptText="Phone Number (Optional)" style="-fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5;">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </TextField>
+
+                <TextField fx:id="cinField" promptText="CIN Number" style="-fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5;">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </TextField>
+                <Button layoutX="408.0" layoutY="50.0" mnemonicParsing="false" onAction="#scanCIN" text="Scan CIN" />
+
+                <ComboBox fx:id="roleComboBox" prefWidth="250.0" promptText="Select Role" style="-fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5;">
+                    <VBox.margin>
+                        <Insets top="5.0" />
+                    </VBox.margin>
+                </ComboBox>
+
+                <Label fx:id="errorLabel" textFill="#e53935" visible="false" wrapText="true">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </Label>
+
+                <Button fx:id="signUpButton" defaultButton="true" onAction="#handleSignUp" prefHeight="45.0" prefWidth="250.0" style="-fx-background-color: #1a2a6c; -fx-text-fill: white; -fx-background-radius: 5;" text="Sign Up">
+                    <font>
+                        <Font name="Segoe UI Bold" size="14.0" />
+                    </font>
+                    <effect>
+                        <DropShadow color="#00000040" height="5.0" radius="2.0" width="5.0" />
+                    </effect>
+                </Button>
+
+                <Label fx:id="successLabel" text="Account created successfully!" textFill="#2e7d32" visible="false">
+                    <font>
+                        <Font name="Segoe UI" size="13.0" />
+                    </font>
+                </Label>
+
+                <Label text="By signing up, you agree to our Terms of Service and Privacy Policy" textAlignment="CENTER" wrapText="true">
+                    <font>
+                        <Font size="10.0" />
+                    </font>
+                    <textFill>#757575</textFill>
+                </Label>
+
+                <Button fx:id="closeButton" cancelButton="true" onAction="#closeWindow" style="-fx-background-color: transparent; -fx-text-fill: #757575;" text="Cancel">
+                    <font>
+                        <Font name="Segoe UI" size="12.0" />
+                    </font>
+                </Button>
+
+                <!-- Captcha Section -->
+                <HBox spacing="10" alignment="CENTER">
+                    <ImageView fx:id="captchaImageView" fitWidth="150" fitHeight="50" preserveRatio="true" pickOnBounds="true">
+                        <HBox.margin>
+                            <Insets top="5.0" bottom="5.0"/>
+                        </HBox.margin>
+                    </ImageView>
+                    <Button fx:id="refreshCaptchaButton" text="Refresh" onAction="#handleRefreshCaptcha">
+                        <HBox.margin>
+                            <Insets top="5.0" bottom="5.0"/>
+                        </HBox.margin>
+                    </Button>
+                </HBox>
+                
+                <TextField fx:id="captchaField" promptText="Enter captcha text" style="-fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5;">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </TextField>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

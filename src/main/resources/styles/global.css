@@ -1,0 +1,77 @@
+/* Global Styles */
+
+/* Base colors */
+.root {
+    -fx-base: #f8f9fa;
+    -fx-background: #f8f9fa;
+    -fx-control-inner-background: #ffffff;
+    
+    /* Color palette */
+    -fx-primary: #1976D2;
+    -fx-primary-light: #64B5F6;
+    -fx-primary-dark: #0D47A1;
+    -fx-accent: #26A69A;
+    -fx-error: #F44336;
+    -fx-warning: #FFC107;
+    -fx-success: #4CAF50;
+    
+    /* Text colors */
+    -fx-text-primary: #212121;
+    -fx-text-secondary: #757575;
+    -fx-text-light: #FFFFFF;
+}
+
+/* Buttons */
+.button {
+    -fx-background-color: -fx-primary;
+    -fx-text-fill: -fx-text-light;
+    -fx-background-radius: 4px;
+    -fx-padding: 8px 16px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: derive(-fx-primary, 20%);
+}
+
+.button:pressed {
+    -fx-background-color: derive(-fx-primary, -10%);
+}
+
+.action-button {
+    -fx-background-color: -fx-accent;
+    -fx-text-fill: -fx-text-light;
+    -fx-font-weight: bold;
+}
+
+.action-button:hover {
+    -fx-background-color: derive(-fx-accent, 20%);
+}
+
+.action-button:pressed {
+    -fx-background-color: derive(-fx-accent, -10%);
+}
+
+/* Labels */
+.label {
+    -fx-text-fill: -fx-text-primary;
+}
+
+/* ScrollPane */
+.scroll-pane {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+}
+
+/* Card layout for content */
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-padding: 15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 3);
+} 

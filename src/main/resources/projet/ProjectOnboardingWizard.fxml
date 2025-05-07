@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.ImageView?>
+
+<VBox spacing="20" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.controller.projet.ProjectOnboardingWizardController"
+      style="-fx-background-color: white; -fx-padding: 30;">
+
+    <!-- Progress Indicator -->
+    <ProgressBar fx:id="progressBar" progress="0.0" prefWidth="400"/>
+    
+    <!-- Step Title -->
+    <Text fx:id="stepTitle" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+    
+    <!-- Content Area -->
+    <StackPane VBox.vgrow="ALWAYS">
+        <!-- Welcome Step -->
+        <VBox fx:id="welcomeStep" spacing="15" visible="true">
+            <Text style="-fx-font-size: 18px;" text="Welcome to the Project Management System!"/>
+            <Text style="-fx-font-size: 14px;" text="Let's help you get started with your project journey."/>
+            <VBox style="-fx-padding: 20; -fx-background-color: #f8f9fa; -fx-background-radius: 10;">
+                <Text style="-fx-font-size: 16px;" text="You'll learn about:"/>
+                <Text style="-fx-font-size: 14px;" text="• Finding and joining projects"/>
+                <Text style="-fx-font-size: 14px;" text="• Using the AI Assistant"/>
+                <Text style="-fx-font-size: 14px;" text="• Collaborating with team members"/>
+                <Text style="-fx-font-size: 14px;" text="• Managing your applications"/>
+            </VBox>
+        </VBox>
+
+        <!-- Project Search Step -->
+        <VBox fx:id="searchStep" spacing="15" visible="false">
+            <Text style="-fx-font-size: 18px;" text="Finding the Right Project"/>
+            <Text style="-fx-font-size: 14px;" text="Use our powerful search and filter tools to find projects that match your interests."/>
+            <ImageView fx:id="searchDemoImage" fitWidth="400" preserveRatio="true"/>
+            <VBox style="-fx-padding: 20; -fx-background-color: #f8f9fa; -fx-background-radius: 10;">
+                <Text style="-fx-font-size: 14px;" text="Tips:"/>
+                <Text style="-fx-font-size: 14px;" text="• Use keywords in the search bar"/>
+                <Text style="-fx-font-size: 14px;" text="• Filter by project status"/>
+                <Text style="-fx-font-size: 14px;" text="• Sort by date or popularity"/>
+                <Text style="-fx-font-size: 14px;" text="• Check project requirements carefully"/>
+            </VBox>
+        </VBox>
+
+        <!-- AI Assistant Step -->
+        <VBox fx:id="aiStep" spacing="15" visible="false">
+            <Text style="-fx-font-size: 18px;" text="Your AI Project Assistant"/>
+            <Text style="-fx-font-size: 14px;" text="Get instant help and guidance with our AI assistant."/>
+            <VBox style="-fx-padding: 20; -fx-background-color: #f8f9fa; -fx-background-radius: 10;">
+                <Text style="-fx-font-size: 14px;" text="The AI Assistant can help you:"/>
+                <Text style="-fx-font-size: 14px;" text="• Learn about project requirements"/>
+                <Text style="-fx-font-size: 14px;" text="• Get application tips"/>
+                <Text style="-fx-font-size: 14px;" text="• Find suitable projects"/>
+                <Text style="-fx-font-size: 14px;" text="• Answer common questions"/>
+            </VBox>
+        </VBox>
+
+        <!-- Collaboration Step -->
+        <VBox fx:id="collaborationStep" spacing="15" visible="false">
+            <Text style="-fx-font-size: 18px;" text="Collaborating on Projects"/>
+            <Text style="-fx-font-size: 14px;" text="Learn how to work effectively with your team."/>
+            <VBox style="-fx-padding: 20; -fx-background-color: #f8f9fa; -fx-background-radius: 10;">
+                <Text style="-fx-font-size: 14px;" text="Key Features:"/>
+                <Text style="-fx-font-size: 14px;" text="• Real-time team chat"/>
+                <Text style="-fx-font-size: 14px;" text="• Task management"/>
+                <Text style="-fx-font-size: 14px;" text="• File sharing"/>
+                <Text style="-fx-font-size: 14px;" text="• Progress tracking"/>
+            </VBox>
+        </VBox>
+
+        <!-- Final Step -->
+        <VBox fx:id="finalStep" spacing="15" visible="false">
+            <Text style="-fx-font-size: 18px;" text="You're All Set!"/>
+            <Text style="-fx-font-size: 14px;" text="You're now ready to start your project journey."/>
+            <VBox style="-fx-padding: 20; -fx-background-color: #f8f9fa; -fx-background-radius: 10;">
+                <Text style="-fx-font-size: 14px;" text="Remember:"/>
+                <Text style="-fx-font-size: 14px;" text="• Keep your profile updated"/>
+                <Text style="-fx-font-size: 14px;" text="• Check project updates regularly"/>
+                <Text style="-fx-font-size: 14px;" text="• Communicate with your team"/>
+                <Text style="-fx-font-size: 14px;" text="• Ask the AI Assistant for help"/>
+            </VBox>
+            <CheckBox fx:id="dontShowAgain" text="Don't show this guide again"/>
+        </VBox>
+    </StackPane>
+
+    <!-- Navigation Buttons -->
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button fx:id="prevButton" text="Previous" onAction="#previousStep"
+                style="-fx-background-color: #e0e0e0; -fx-text-fill: #333333;"/>
+        <Button fx:id="nextButton" text="Next" onAction="#nextStep"
+                style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+    </HBox>
+</VBox> 

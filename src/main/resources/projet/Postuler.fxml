@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<VBox spacing="18" alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.projet.PostulerController" stylesheets="/projet/applyform.css" style="-fx-background-color: white; -fx-padding: 32; -fx-background-radius: 16;">
+    <Text text="Apply for Project" style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-fill: #43e97b; -fx-padding: 0 0 12 0;"/>
+    <GridPane hgap="16" vgap="14" alignment="CENTER">
+        <Label text="Project ID:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="tfProjectId" promptText="Auto-filled" GridPane.rowIndex="0" GridPane.columnIndex="1" editable="false"/>
+
+        <Label text="First Name:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="tfFirstName" promptText="Your first name" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Email:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="tfEmail" promptText="your@email.com" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Phone Number:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="tfNumTel" promptText="e.g. +123456789" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        <Label text="Why do you want to join?" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <TextArea fx:id="taJoiningReason" promptText="Tell us why you're interested..." GridPane.rowIndex="4" GridPane.columnIndex="1" prefRowCount="3" wrapText="true"/>
+    </GridPane>
+    <HBox spacing="16" alignment="CENTER">
+        <Button fx:id="btnApply" text="Apply" styleClass="primary-btn" onAction="#handleApply"/>
+        <Button fx:id="btnCancel" text="Cancel" styleClass="secondary-btn" onAction="#handleCancel"/>
+    </HBox>
+    <Label fx:id="lblFeedback" text="" style="-fx-text-fill: #F44336; -fx-font-size: 13px;" visible="false"/>
+</VBox> 

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.collections.FXCollections?>
+<VBox spacing="18.0" alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.projet.ProjectCalendarViewController" style="-fx-background-color: white; -fx-padding: 24;">
+    <HBox alignment="CENTER_LEFT" spacing="12" style="-fx-padding: 0 0 8 0;">
+        <Text text="🌟 Project Calendar" style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-fill: #43e97b;"/>
+        <Region fx:id="headerSpacer" HBox.hgrow="ALWAYS"/>
+        <ComboBox fx:id="statusFilter" promptText="Filter by status" style="-fx-font-size: 14px; -fx-background-radius: 8;"/>
+    </HBox>
+    <HBox spacing="10" alignment="CENTER">
+        <Button fx:id="prevMonthBtn" text="&lt;" onAction="#showPrevMonth" style="-fx-font-size: 16px; -fx-background-radius: 8;"/>
+        <Label fx:id="monthLabel" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+        <Button fx:id="nextMonthBtn" text="&gt;" onAction="#showNextMonth" style="-fx-font-size: 16px; -fx-background-radius: 8;"/>
+    </HBox>
+    <GridPane fx:id="calendarGrid" hgap="6" vgap="6" style="-fx-padding: 10;"/>
+    <HBox spacing="18" alignment="CENTER" style="-fx-padding: 10 0 0 0;">
+        <HBox spacing="6" alignment="CENTER"><Rectangle width="18" height="18" style="-fx-fill: #4CAF50; -fx-stroke: #bbb; -fx-arc-width: 6; -fx-arc-height: 6;"/><Label text="Active" style="-fx-font-size: 13px;"/></HBox>
+        <HBox spacing="6" alignment="CENTER"><Rectangle width="18" height="18" style="-fx-fill: #2196F3; -fx-stroke: #bbb; -fx-arc-width: 6; -fx-arc-height: 6;"/><Label text="Completed" style="-fx-font-size: 13px;"/></HBox>
+        <HBox spacing="6" alignment="CENTER"><Rectangle width="18" height="18" style="-fx-fill: #FFC107; -fx-stroke: #bbb; -fx-arc-width: 6; -fx-arc-height: 6;"/><Label text="Upcoming" style="-fx-font-size: 13px;"/></HBox>
+        <HBox spacing="6" alignment="CENTER"><Rectangle width="18" height="18" style="-fx-fill: #F44336; -fx-stroke: #bbb; -fx-arc-width: 6; -fx-arc-height: 6;"/><Label text="Cancelled" style="-fx-font-size: 13px;"/></HBox>
+    </HBox>
+    <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 10 0 0 0;">
+        <Label text="Show:" style="-fx-font-size: 14px;"/>
+        <ComboBox fx:id="projectListToggle" prefWidth="140" style="-fx-font-size: 14px;"/>
+    </HBox>
+    <ListView fx:id="projectListView" prefHeight="120" style="-fx-font-size: 14px; -fx-background-radius: 8; -fx-border-color: #eee; -fx-border-radius: 8;"/>
+</VBox> 

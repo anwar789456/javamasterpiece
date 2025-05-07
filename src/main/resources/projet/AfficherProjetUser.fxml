@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VBox spacing="20" alignment="TOP_CENTER" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.controller.projet.AfficherProjetUserController" style="-fx-background-color: #f4f6fa;">
+    <HBox spacing="10" alignment="CENTER">
+        <TextField fx:id="tfSearch" promptText="Rechercher un projet..." />
+        <ComboBox fx:id="cbStatusFilter" promptText="Filtrer par statut" />
+        <Button text="Rechercher" onAction="#onSearch"/>
+    </HBox>
+    <ScrollPane fitToWidth="true" style="-fx-background-color:transparent;">
+        <TilePane fx:id="tilePaneProjects" hgap="20" vgap="20" padding="20" style="-fx-background-color:transparent;"/>
+    </ScrollPane>
+</VBox> 

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.TextAlignment?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.controller.quiz.UserQuizController"
+      spacing="20">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Available Quizzes" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+        <Button fx:id="historyButton" text="Historique" onAction="#handleShowHistory" styleClass="history-button">
+            <graphic>
+                <Label text="📊"/>
+            </graphic>
+        </Button>
+    </HBox>
+    
+    <!-- ScrollPane pour contenir tous les blocs de quiz -->
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+        <VBox fx:id="quizzesContainer" spacing="15">
+            <!-- Les blocs de quiz seront ajoutés dynamiquement ici -->
+        </VBox>
+    </ScrollPane>
+</VBox> 

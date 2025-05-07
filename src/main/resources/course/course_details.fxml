@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.DropShadow?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.course.CourseDetailsController" stylesheets="@../css/course_details.css">
+   <top>
+      <VBox spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+               <children>
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBack" prefHeight="30.0" text="Back to Courses" styleClass="back-button">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </top>
+   <center>
+      <ScrollPane fitToWidth="true" styleClass="transparent-background" BorderPane.alignment="CENTER">
+         <content>
+            <VBox spacing="20.0">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+               </padding>
+               <children>
+                  <!-- Course Header Section -->
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label fx:id="courseTitle" text="Diploma in Information Systems and Organization Strategy" wrapText="true" styleClass="course-title">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="courseSubtitle" text="This free online course shows you how the implementation of information systems affects organizational strategy." wrapText="true" styleClass="course-subtitle">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  
+                  <!-- Course Description -->
+                  <Label fx:id="descriptionLabel" text="This free online data science course discusses the relationship between information systems and organizational strategy. Every institution or business maps out its future and we explore the role of information systems in keeping data safe, relevant and flowing between relevant stakeholders. This course can enrich your understanding of information management and boost your value in the workplace." wrapText="true" styleClass="course-description">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  
+                  <!-- Course Publisher Info -->
+                  <HBox spacing="15.0" alignment="CENTER_LEFT" styleClass="publisher-info">
+                     <children>
+                        <ImageView fx:id="publisherImage" fitWidth="60.0" fitHeight="60.0" preserveRatio="true" styleClass="publisher-image" />
+                        <VBox spacing="2.0">
+                           <children>
+                              <Label text="COURSE PUBLISHER" styleClass="publisher-label">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="publisherName" text="Professional Academy" styleClass="publisher-name">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="publisherInfo" text="Developed by university lecturers" styleClass="publisher-description">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  
+                  <!-- Start Learning Button -->
+                  <Button fx:id="startLearningButton" mnemonicParsing="false" onAction="#handleStartLearning" 
+                          styleClass="start-learning-button" text="Start Learning" prefWidth="200.0" prefHeight="40.0"
+                          style="-fx-background-color: #4CAF50; -fx-text-fill: white;">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <effect>
+                        <DropShadow height="5.0" radius="2.0" width="5.0" color="#00000033" />
+                     </effect>
+                  </Button>
+                  
+                  <!-- Test Learning Interface Button -->
+                  <Button fx:id="testLearningButton" mnemonicParsing="false" onAction="#handleTestLearning" 
+                          text="Test Learning Interface" prefWidth="200.0" prefHeight="40.0"
+                          style="-fx-background-color: #2196F3; -fx-text-fill: white;">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  
+                  <!-- Course Content -->
+                  <Label text="Course Content" styleClass="section-title">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  
+                  <ListView fx:id="lessonsListView" prefHeight="180.0" minHeight="180.0" VBox.vgrow="NEVER" styleClass="lessons-list" />
+                  
+                  <!-- Reviews Section -->
+                  <VBox fx:id="reviewsContainer" spacing="10.0" styleClass="reviews-container">
+                     <padding>
+                        <Insets top="20.0" bottom="20.0" />
+                     </padding>
+                     <children>
+                        <Label fx:id="reviewSectionTitle" text="Course Reviews" styleClass="section-title">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        
+                        <!-- Reviews List -->
+                        <ScrollPane fx:id="reviewsScrollPane" fitToWidth="true" prefHeight="250.0" minHeight="200.0" maxHeight="300.0" styleClass="transparent-background">
+                           <content>
+                              <VBox spacing="10.0">
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                                 <!-- Reviews will be dynamically added here -->
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                        
+                        <!-- Add Review Section -->
+                        <VBox fx:id="addReviewContainer" spacing="10.0" styleClass="add-review-container">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                           </padding>
+                           <children>
+                              <Label text="Add Your Review" styleClass="sub-section-title">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              
+                              <TextArea fx:id="reviewTextArea" prefHeight="80.0" promptText="Share your experience with this course..." wrapText="true" />
+                              
+                              <HBox spacing="20.0" alignment="CENTER_LEFT">
+                                 <children>
+                                    <Label text="Rate this course:" />
+                                    <RadioButton fx:id="likeRadioButton" text="Like 👍" selected="true" />
+                                    <RadioButton fx:id="dislikeRadioButton" text="Dislike 👎" />
+                                 </children>
+                              </HBox>
+                              
+                              <Button fx:id="submitReviewButton" text="Submit Review" onAction="#handleSubmitReview" 
+                                     styleClass="primary-button" prefWidth="150.0" prefHeight="35.0"
+                                     style="-fx-background-color: #4CAF50; -fx-text-fill: white;">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              
+                              <Label fx:id="reviewStatusLabel" text="Review submitted successfully!" 
+                                    visible="false" styleClass="status-message" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+   <right>
+      <VBox spacing="15.0" prefWidth="300.0" alignment="TOP_CENTER">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <children>
+            <!-- Course Image -->
+            <ImageView fx:id="courseImage" fitWidth="260.0" fitHeight="160.0" preserveRatio="false" styleClass="course-image" />
+            
+            <!-- Course Stats -->
+            <VBox spacing="10.0" styleClass="stats-box">
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+               
+               <!-- Learners Count -->
+               <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="stat-row">
+                  <children>
+                     <Label text="🎓" styleClass="stat-icon">
+                        <font>
+                           <Font size="16.0" />
+                        </font>
+                     </Label>
+                     <Label fx:id="learnersLabel" text="65,272" styleClass="stat-value">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Label>
+                     <Label text="Learners enrolled" styleClass="stat-label">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Label>
+                  </children>
+               </HBox>
+               
+               <!-- Likes/Dislikes -->
+               <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="stat-row">
+                  <children>
+                     <Label text="👍" styleClass="stat-icon">
+                        <font>
+                           <Font size="16.0" />
+                        </font>
+                     </Label>
+                     <Label fx:id="likesLabel" text="489" styleClass="stat-value">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Label>
+                     <Region HBox.hgrow="ALWAYS" />
+                     <Label text="👎" styleClass="stat-icon">
+                        <font>
+                           <Font size="16.0" />
+                        </font>
+                     </Label>
+                     <Label fx:id="dislikesLabel" text="486" styleClass="stat-value">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Label>
+                  </children>
+               </HBox>
+               
+               <!-- Duration -->
+               <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="stat-row">
+                  <children>
+                     <Label text="🕒" styleClass="stat-icon">
+                        <font>
+                           <Font size="16.0" />
+                        </font>
+                     </Label>
+                     <Label fx:id="durationLabel" text="1.5-3" styleClass="stat-value">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Label>
+                     <Label text="hours" styleClass="stat-label">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Label>
+                  </children>
+               </HBox>
+               
+               <!-- Price -->
+               <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="stat-row">
+                  <children>
+                     <Label text="💰" styleClass="stat-icon">
+                        <font>
+                           <Font size="16.0" />
+                        </font>
+                     </Label>
+                     <Label fx:id="priceLabel" text="Free" styleClass="stat-value">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Label>
+                  </children>
+               </HBox>
+            </VBox>
+         </children>
+      </VBox>
+   </right>
+</BorderPane> 

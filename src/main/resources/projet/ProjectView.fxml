@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="org.example.controller.projet.ProjectController" 
+      spacing="20" styleClass="main-container">
+    
+    <!-- Header with Project Name and Dark Mode Toggle -->
+    <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 20;">
+        <VBox spacing="5" HBox.hgrow="ALWAYS">
+            <Label text="Project Details" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+            <Label fx:id="projectNameLabel" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #3498db;"/>
+        </VBox>
+        <Button fx:id="darkModeToggle" text="Dark Mode" onAction="#toggleDarkMode" 
+                style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 8 15; -fx-background-radius: 5; -fx-cursor: hand;"/>
+    </HBox>
+
+    <!-- Project Information -->
+    <GridPane vgap="15" hgap="20" styleClass="info-container">
+        <Label text="Description" styleClass="info-label" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <Label fx:id="descriptionLabel" styleClass="info-value" GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+        
+        <Label text="Start Date" styleClass="info-label" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <Label fx:id="startDateLabel" styleClass="info-value" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        
+        <Label text="End Date" styleClass="info-label" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <Label fx:id="endDateLabel" styleClass="info-value" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        
+        <Label text="Status" styleClass="info-label" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <Label fx:id="statusLabel" styleClass="info-value" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+        
+        <Label text="Created By" styleClass="info-label" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <HBox spacing="10" alignment="CENTER_LEFT" GridPane.rowIndex="4" GridPane.columnIndex="1">
+            <ImageView fx:id="creatorAvatar" fitWidth="40" fitHeight="40" preserveRatio="true"/>
+            <Label fx:id="creatorNameLabel" styleClass="info-value"/>
+        </HBox>
+    </GridPane>
+
+    <!-- Team Members Section -->
+    <VBox spacing="10" styleClass="team-container">
+        <Label fx:id="teamMembersLabel" text="Team Members" styleClass="section-title"/>
+        <FlowPane fx:id="teamMembersFlowPane" hgap="20" vgap="20" prefWrapLength="800" styleClass="team-members-grid"/>
+    </VBox>
+</VBox> 
