@@ -41,6 +41,9 @@ public class menu {
     private Button applicationsButton;
 
     @FXML
+    private Button teacherApplicationsButton;
+
+    @FXML
     private Button quizButton;
 
     @FXML
@@ -66,6 +69,7 @@ public class menu {
         buttonPathMap.put(userButton, "/user/AfficherUser.fxml");
         buttonPathMap.put(projectButton, "/projet/AfficherProjet.fxml");
         buttonPathMap.put(applicationsButton, "/projet/AfficherPostulerAdmin.fxml");
+        buttonPathMap.put(teacherApplicationsButton, "/admin/teacher_applications_list.fxml");
         buttonPathMap.put(quizButton, "/quiz/AfficherQuiz.fxml");
         buttonPathMap.put(questionQuizButton, "/quiz/AfficherQuestionQuiz.fxml");
         buttonPathMap.put(competitionButton, "/quiz/AfficherQuiz.fxml");
@@ -77,6 +81,7 @@ public class menu {
         userButton.setOnAction(event -> handleButtonClick(userButton));
         projectButton.setOnAction(event -> handleButtonClick(projectButton));
         applicationsButton.setOnAction(event -> handleButtonClick(applicationsButton));
+        teacherApplicationsButton.setOnAction(event -> handleButtonClick(teacherApplicationsButton));
         quizButton.setOnAction(event -> handleButtonClick(quizButton));
         questionQuizButton.setOnAction(event -> handleButtonClick(questionQuizButton));
         competitionButton.setOnAction(event -> handleButtonClick(competitionButton));
@@ -89,6 +94,7 @@ public class menu {
         addButtonStyleHandlers(forumButton);
         addButtonStyleHandlers(userForumButton);
         addButtonStyleHandlers(userButton);
+        addButtonStyleHandlers(teacherApplicationsButton);
         addButtonStyleHandlers(signOutButton);
         addButtonStyleHandlers(competitionButton);
         addButtonStyleHandlers(coursesButton);

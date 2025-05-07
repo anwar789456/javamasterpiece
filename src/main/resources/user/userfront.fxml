@@ -251,6 +251,36 @@
 
                         <Separator style="-fx-background-color: #e0e6ed;"/>
 
+                        <!-- Teacher Application Section -->
+                        <HBox spacing="15" alignment="CENTER_LEFT">
+                            <VBox spacing="3">
+                                <Label text="Teacher Status" style="-fx-font-weight: bold;">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                                <Label fx:id="teacherStatusLabel" text="Apply to become a teacher on our platform" textFill="#78909c">
+                                    <font>
+                                        <Font size="12.0"/>
+                                    </font>
+                                </Label>
+                            </VBox>
+
+                            <Region HBox.hgrow="ALWAYS" />
+
+                            <Button fx:id="applyTeacherButton" text="Apply as a Teacher"
+                                    style="-fx-background-color: #667eea; -fx-text-fill: white; -fx-background-radius: 5;">
+                                <font>
+                                    <Font size="12.0"/>
+                                </font>
+                                <padding>
+                                    <Insets top="8.0" right="15.0" bottom="8.0" left="15.0"/>
+                                </padding>
+                            </Button>
+                        </HBox>
+
+                        <Separator style="-fx-background-color: #e0e6ed;"/>
+
                         <!-- Notification Preferences -->
                         <HBox spacing="15" alignment="CENTER_LEFT">
                             <VBox spacing="3">

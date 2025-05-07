@@ -4,33 +4,74 @@ import org.example.models.user.User;
 import utils.dataSource;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
+/**
+ * Service class to handle operations on the user table
+ */
 public class UserService {
-    private static final String SELECT_BY_ID_QUERY = "SELECT * FROM user WHERE id = ?";
-    private static final String SELECT_ALL_QUERY = "SELECT * FROM user";
-
+    
+    private static final String SELECT_USER_BY_ID = "SELECT * FROM user WHERE id = ?";
+    private static final String SELECT_ALL_USERS = "SELECT * FROM user";
+    
     /**
      * Get a user by ID
-     * @param id The user ID
-     * @return The user object or null if not found
+     * 
+     * @param userId The ID of the user to retrieve
+     * @return The User object if found, null otherwise
      */
-    public User getUserById(int id) throws SQLException {
-        User user = null;
+    public User getUserById(int userId) throws SQLException {
         Connection connection = dataSource.getInstance().getConnection();
-
-        try (PreparedStatement pst = connection.prepareStatement(SELECT_BY_ID_QUERY)) {
-            pst.setInt(1, id);
-
+        try (PreparedStatement pst = connection.prepareStatement(SELECT_USER_BY_ID)) {
+            pst.setInt(1, userId);
             try (ResultSet rs = pst.executeQuery()) {
                 if (rs.next()) {
-                    user = mapResultSetToUser(rs);
+                    User user = new User();
+                    user.setId(rs.getInt("id"));
+                    user.setName(rs.getString("name"));
+                    user.setEmail(rs.getString("email"));
+                    user.setPassword(rs.getString("password"));
+                    user.setRoles(rs.getString("roles"));
+                    user.setNumTel(rs.getString("numTel"));
+                    user.setCin(rs.getString("cin"));
+                    return user;
                 }
+                return null;
             }
         } finally {
             dataSource.getInstance().releaseConnection(connection);
         }
-
-        return user;
+    }
+    
+    /**
+     * Get all users from the database
+     * 
+     * @return A list of all users
+     */
+    public List<User> getAllUsers() throws SQLException {
+        List<User> users = new ArrayList<>();
+        
+        Connection connection = dataSource.getInstance().getConnection();
+        try (PreparedStatement pst = connection.prepareStatement(SELECT_ALL_USERS);
+             ResultSet rs = pst.executeQuery()) {
+            
+            while (rs.next()) {
+                User user = new User();
+                user.setId(rs.getInt("id"));
+                user.setName(rs.getString("name"));
+                user.setEmail(rs.getString("email"));
+                user.setPassword(rs.getString("password"));
+                user.setRoles(rs.getString("roles"));
+                user.setNumTel(rs.getString("numTel"));
+                user.setCin(rs.getString("cin"));
+                users.add(user);
+            }
+            
+            return users;
+        } finally {
+            dataSource.getInstance().releaseConnection(connection);
+        }
     }
     
     /**
@@ -172,26 +213,5 @@ public class UserService {
             if (stmt != null) try { stmt.close(); } catch (SQLException e) { /* ignore */ }
             if (conn != null) dataSource.getInstance().releaseConnection(conn);
         }
-    }
-    /**
-     * Helper method to map ResultSet to User object
-     */
-    private User mapResultSetToUser(ResultSet rs) throws SQLException {
-        User user = new User();
-        user.setId(rs.getInt("id"));
-        user.setCin(rs.getString("cin"));
-        user.setEmail(rs.getString("email"));
-        user.setRoles(rs.getString("roles"));
-        user.setName(rs.getString("name"));
-        user.setLoginCount(rs.getInt("login_count"));
-        user.setImageUrl(rs.getString("image_url"));
-        user.setNumTel(rs.getString("numtel"));
-
-        Timestamp penalizedUntil = rs.getTimestamp("penalized_until");
-        if (penalizedUntil != null) {
-            user.setPenalizedUntil(penalizedUntil.toLocalDateTime());
-        }
-
-        return user;
     }
 } 

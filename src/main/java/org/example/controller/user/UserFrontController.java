@@ -16,6 +16,8 @@ import org.example.models.user.User;
 import org.example.models.Badge;
 import utils.dataSource;
 import org.example.service.BadgeService;
+import org.example.services.TeacherService;
+import org.example.services.TeacherApplicationService;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -24,6 +26,9 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
+import javafx.scene.Node;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
 
 import java.io.File;
 import java.io.IOException;
@@ -98,6 +103,12 @@ public class UserFrontController implements Initializable {
     @FXML
     private BorderPane mainContent;
 
+    @FXML
+    private Button applyTeacherButton;
+
+    @FXML
+    private Label teacherStatusLabel;
+
     // Date formatter for display
     private final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MMMM d, yyyy");
     private final DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("h:mm a");
@@ -112,49 +123,72 @@ public class UserFrontController implements Initializable {
     private int userId;
 
     private final BadgeService badgeService = new BadgeService();
+    private TeacherService teacherService;
+    private TeacherApplicationService teacherApplicationService;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        System.out.println("DEBUG: Initializing UserFrontController");
+        
         // Get the session manager instance
         sessionManager = SessionManager.getInstance();
 
         // Get the current logged-in user from session
         currentUser = sessionManager.getCurrentUser();
-
-        userId= currentUser.getId();
-
-        // If no user is logged in, show an error and return
-        if (currentUser == null) {
+        
+        if (currentUser != null) {
+            System.out.println("DEBUG: Current user ID: " + currentUser.getId());
+            userId = currentUser.getId();
+        } else {
+            System.out.println("DEBUG: No user logged in!");
             showError("No user logged in!");
             return;
         }
 
-        // Load user data
-        loadUserData();
-
-        // Setup event handlers
-        setupEventHandlers();
-
-        // Set toggle button style change based on selection
-        styleToggleButton();
-
-        // Setup badge button handler
-        giveBadgeButton.setOnAction(event -> handleGiveBadge());
-        
-        // Show admin button if user is an admin
-        if (currentUser.getRoles().contains("ROLE_ADMIN")) {
-            Button adminButton = new Button("Admin Functions");
-            adminButton.setStyle("-fx-background-color: #673AB7; -fx-text-fill: white;");
-            adminButton.setOnAction(event -> showAdminSection());
-            // Add the button to the UI (you'll need to adjust this based on your layout)
-            if (badgesFlowPane.getParent() instanceof VBox) {
-                VBox container = (VBox) badgesFlowPane.getParent();
-                container.getChildren().add(adminButton);
+        try {
+            // Initialize services
+            teacherService = new TeacherService();
+            teacherApplicationService = new TeacherApplicationService();
+            
+            // Load user data
+            loadUserData();
+            
+            // Setup event handlers
+            setupEventHandlers();
+            
+            // Set toggle button style change based on selection
+            styleToggleButton();
+            
+            // Setup badge button handler
+            giveBadgeButton.setOnAction(event -> handleGiveBadge());
+            
+            // Show admin button if user is an admin
+            if (currentUser.getRoles().contains("ROLE_ADMIN")) {
+                Button adminButton = new Button("Admin Functions");
+                adminButton.setStyle("-fx-background-color: #673AB7; -fx-text-fill: white;");
+                adminButton.setOnAction(event -> showAdminSection());
+                // Add the button to the UI (you'll need to adjust this based on your layout)
+                if (badgesFlowPane.getParent() instanceof VBox) {
+                    VBox container = (VBox) badgesFlowPane.getParent();
+                    container.getChildren().add(adminButton);
+                }
             }
+            
+            // Load badges
+            loadBadges();
+            
+            // Ensure everything is initialized before checking teacher status
+            javafx.application.Platform.runLater(() -> {
+                System.out.println("DEBUG: Running checkTeacherStatus from Platform.runLater");
+                // Check if user is already a teacher and update UI
+                checkTeacherStatus();
+            });
+            
+        } catch (Exception e) {
+            System.out.println("DEBUG: Error in initialize: " + e.getMessage());
+            e.printStackTrace();
+            showError("Error initializing: " + e.getMessage());
         }
-        
-        // Load badges
-        loadBadges();
     }
 
     /**
@@ -245,6 +279,11 @@ public class UserFrontController implements Initializable {
 
         // Deactivate Account button
         deactivateAccountButton.setOnAction(event -> handleDeactivateAccount());
+
+        // Set up Apply as Teacher button action if it exists
+        if (applyTeacherButton != null) {
+            applyTeacherButton.setOnAction(event -> handleApplyTeacher());
+        }
     }
 
     /**
@@ -754,12 +793,236 @@ public class UserFrontController implements Initializable {
         mainContent.getChildren().add(adminContent);
     }
 
-    private void showMainContent() {
-        // This method will be called to return to the main user view
+    void showMainContent() {
+        System.out.println("DEBUG: showMainContent called");
         if (mainContent != null) {
-            // Simply reload the current screen
-            loadUserData();
-            loadBadges();
+            try {
+                // Force refresh the application state
+                if (teacherApplicationService != null && currentUser != null) {
+                    System.out.println("DEBUG: Rechecking application status before loading profile");
+                    // Check if user has submitted an application
+                    boolean hasApplied = teacherApplicationService.hasApplied(currentUser.getId());
+                    System.out.println("DEBUG: hasApplied = " + hasApplied);
+                }
+                
+                // Reload the user profile view
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/user/userfront.fxml"));
+                Parent root = loader.load();
+                
+                // Get the controller and set the user ID
+                UserFrontController controller = loader.getController();
+                controller.setCurrentUserId(userId);
+                
+                // Replace the main content with the profile view
+                Scene scene = mainContent.getScene();
+                if (scene != null) {
+                    scene.setRoot(root);
+                }
+            } catch (IOException e) {
+                System.out.println("DEBUG: Error in showMainContent: " + e.getMessage());
+                e.printStackTrace();
+                showError("Error reloading profile view: " + e.getMessage());
+            } catch (SQLException e) {
+                System.out.println("DEBUG: SQL Error in showMainContent: " + e.getMessage());
+                showError("Database error: " + e.getMessage());
+            } catch (Exception e) {
+                System.out.println("DEBUG: Unexpected error in showMainContent: " + e.getMessage());
+                e.printStackTrace();
+                showError("Error: " + e.getMessage());
+            }
+        } else {
+            System.out.println("DEBUG: mainContent is null in showMainContent");
+        }
+    }
+
+    /**
+     * Check if the current user is a teacher and update UI accordingly
+     */
+    private void checkTeacherStatus() {
+        if (currentUser == null) {
+            System.out.println("DEBUG: currentUser is null in checkTeacherStatus()");
+            return;
+        }
+        
+        try {
+            boolean isTeacher = teacherService.isTeacher(currentUser.getId());
+            boolean hasApplied = teacherApplicationService.hasApplied(currentUser.getId());
+            
+            // Check if the application was declined
+            boolean isDeclined = teacherApplicationService.isApplicationDeclined(currentUser.getId());
+            String declineReason = null;
+            
+            if (isDeclined) {
+                declineReason = teacherApplicationService.getDeclineReason(currentUser.getId());
+            }
+            
+            System.out.println("DEBUG: User ID: " + currentUser.getId() + ", isTeacher: " + isTeacher + 
+                               ", hasApplied: " + hasApplied + ", isDeclined: " + isDeclined);
+            System.out.println("DEBUG: applyTeacherButton: " + (applyTeacherButton != null ? "not null" : "null"));
+            System.out.println("DEBUG: teacherStatusLabel: " + (teacherStatusLabel != null ? "not null" : "null"));
+            
+            // IMPORTANT: Check for declined applications first, before checking teacher status
+            if (isDeclined) {
+                // Application was declined
+                System.out.println("DEBUG: Setting application declined UI");
+                if (applyTeacherButton != null) {
+                    applyTeacherButton.setText("Application Declined");
+                    applyTeacherButton.setDisable(true);
+                    applyTeacherButton.setStyle("-fx-background-color: #9E9E9E; -fx-text-fill: white; -fx-background-radius: 5;");
+                    applyTeacherButton.setVisible(true);
+                    
+                    // Add a "See Details" button next to the declined button
+                    Button seeDetailsButton = new Button("See Details");
+                    seeDetailsButton.setStyle("-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 5;");
+                    
+                    // Assuming applyTeacherButton is inside a layout container (likely a HBox or VBox)
+                    if (applyTeacherButton.getParent() instanceof HBox) {
+                        HBox container = (HBox) applyTeacherButton.getParent();
+                        
+                        // Check if the details button doesn't already exist
+                        boolean detailsButtonExists = false;
+                        for (Node node : container.getChildren()) {
+                            if (node instanceof Button && ((Button) node).getText().equals("See Details")) {
+                                detailsButtonExists = true;
+                                break;
+                            }
+                        }
+                        
+                        if (!detailsButtonExists) {
+                            container.getChildren().add(seeDetailsButton);
+                        }
+                    } 
+                    // If parent isn't a HBox, create a new container
+                    else if (applyTeacherButton.getParent() != null) {
+                        Node parent = applyTeacherButton.getParent();
+                        int index = ((Pane) parent).getChildren().indexOf(applyTeacherButton);
+                        
+                        HBox newContainer = new HBox(10);
+                        newContainer.setAlignment(Pos.CENTER_LEFT);
+                        newContainer.getChildren().addAll(applyTeacherButton, seeDetailsButton);
+                        
+                        // Replace the button with our container
+                        ((Pane) parent).getChildren().remove(applyTeacherButton);
+                        ((Pane) parent).getChildren().add(index, newContainer);
+                    }
+                    
+                    // Set action for the details button
+                    final String finalDeclineReason = declineReason;
+                    seeDetailsButton.setOnAction(event -> showDeclineDetails(finalDeclineReason));
+                    
+                    if (teacherStatusLabel != null) {
+                        teacherStatusLabel.setText("Your teacher application has been reviewed.");
+                    }
+                }
+            } else if (isTeacher) {
+                // Change the button to indicate user is already a teacher
+                System.out.println("DEBUG: Setting teacher UI");
+                if (applyTeacherButton != null) {
+                    applyTeacherButton.setText("Application Pending");
+                    applyTeacherButton.setDisable(true);
+                    applyTeacherButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;");
+                    applyTeacherButton.setVisible(true); // Ensure button is visible
+                    
+                    if (teacherStatusLabel != null) {
+                        teacherStatusLabel.setText("Your teacher application is being processed. Please check your email for updates.");
+                    }
+                }
+            } else if (hasApplied) {
+                // Change button text and style if user has applied but not yet approved
+                System.out.println("DEBUG: Setting application pending UI");
+                if (applyTeacherButton != null) {
+                    applyTeacherButton.setText("Application Pending");
+                    applyTeacherButton.setDisable(true);
+                    applyTeacherButton.setStyle("-fx-background-color: #FF9800; -fx-text-fill: white; -fx-background-radius: 5;");
+                    applyTeacherButton.setVisible(true); // Ensure button is visible
+                    
+                    // Update the label text
+                    if (teacherStatusLabel != null) {
+                        teacherStatusLabel.setText("Your teacher application is under review. Please check your email for status updates.");
+                    }
+                }
+            } else {
+                // Default state - can apply as teacher
+                System.out.println("DEBUG: Setting default UI");
+                if (applyTeacherButton != null) {
+                    applyTeacherButton.setText("Apply as a Teacher");
+                    applyTeacherButton.setDisable(false);
+                    applyTeacherButton.setStyle("-fx-background-color: #667eea; -fx-text-fill: white; -fx-background-radius: 5;");
+                    applyTeacherButton.setVisible(true);
+                    
+                    if (teacherStatusLabel != null) {
+                        teacherStatusLabel.setText("Apply to become a teacher on our platform and share your knowledge.");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("DEBUG: SQL error in checkTeacherStatus: " + e.getMessage());
+            showError("Error checking teacher status: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("DEBUG: Unexpected error in checkTeacherStatus: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Show a dialog with details about why an application was declined
+     */
+    private void showDeclineDetails(String declineReason) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Application Status");
+        alert.setHeaderText("Your Application Was Not Approved");
+        
+        String message = "We regret to inform you that your application to become a teacher was not approved at this time.\n\n";
+        message += "Reason provided by the review team:\n";
+        message += declineReason + "\n\n";
+        message += "If you believe this decision was made in error or if you'd like to reapply with additional qualifications in the future, please contact our support team.";
+        
+        alert.setContentText(message);
+        
+        // Make the dialog resizable to handle long messages
+        alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+        alert.getDialogPane().setMinWidth(500);
+        
+        // Apply modern styling
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStyleClass().add("modern-dialog");
+        
+        // Try to load the custom CSS
+        try {
+            String cssUrl = getClass().getResource("/css/dialog.css").toExternalForm();
+            dialogPane.getStylesheets().add(cssUrl);
+        } catch (Exception e) {
+            System.out.println("DEBUG: Could not load dialog CSS: " + e.getMessage());
+        }
+        
+        alert.showAndWait();
+    }
+
+    /**
+     * Handle Apply as Teacher button click
+     */
+    private void handleApplyTeacher() {
+        try {
+            // Load the teacher application form
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/user/TeacherApplicationForm.fxml"));
+            Parent root = loader.load();
+            
+            // Get the controller and set the parent controller
+            TeacherApplicationController controller = loader.getController();
+            controller.setParentController(this);
+            
+            // Replace the main content with the teacher application form
+            if (mainContent != null) {
+                mainContent.setCenter(root);
+            } else {
+                // If not embedded in BorderPane, open in a new window
+                Stage stage = new Stage();
+                stage.setTitle("Apply as a Teacher");
+                stage.setScene(new Scene(root));
+                stage.show();
+            }
+        } catch (IOException e) {
+            showError("Error loading teacher application form: " + e.getMessage());
         }
     }
 }

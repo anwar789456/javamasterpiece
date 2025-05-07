@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class dataSource {
-    private String url="jdbc:mysql://localhost:3306/pidevversion2";
+    private String url="jdbc:mysql://localhost:3232/pidev3";
     private String username="root";
     private String pwd="";
     private static dataSource instance;

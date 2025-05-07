@@ -107,6 +107,15 @@
                     </graphic>
                 </Button>
 
+                <Button fx:id="teacherApplicationsButton" styleClass="menu-button" prefHeight="50.0" prefWidth="220.0" text="Teacher Applications">
+                    <font>
+                        <Font name="Segoe UI" size="14.0" />
+                    </font>
+                    <graphic>
+                        <Label text="👨‍🏫" styleClass="menu-icon" />
+                    </graphic>
+                </Button>
+
                 <Button fx:id="quizButton" styleClass="menu-button" prefHeight="50.0" prefWidth="220.0" text="Quiz">
                     <font>
                         <Font name="Segoe UI" size="14.0" />
